@@ -1,0 +1,12 @@
+{
+  "name": "eui-exploration-user-interface",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "mkdir -p ../../dist/eui/ && rsync -ru public/ ../../dist/eui/"
+  },
+  "author": "",
+  "license": "MIT"
+}

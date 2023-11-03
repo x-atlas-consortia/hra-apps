@@ -1,0 +1,12 @@
+{
+  "name": "landing-page",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "mkdir -p ../../dist/ && rsync -ru public/ ../../dist/"
+  },
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "us1-spatial-to-cell",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm-run-all build:public build:app",
+    "build:public": "mkdir -p ../../dist/us1/ && rsync -ru --delete public/ ../../dist/us1/",
+    "build:app": "npx esbuild main.js --bundle --format=esm --outfile=../../dist/us1/bundle.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "npm-run-all": "^4.1.5",
+    "tabulator-tables": "^5.5.2",
+    "web-dialog": "^0.0.11"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "rui-registration-user-interface",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "mkdir -p ../../dist/rui/ && rsync -ru public/ ../../dist/rui/"
+  },
+  "author": "",
+  "license": "MIT"
+}

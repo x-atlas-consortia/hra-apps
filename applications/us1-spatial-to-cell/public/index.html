@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>User Story 1: Improving Cell Type Annotations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@gh-pages/rui/styles.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet">
+  <script src="sw-loader.js"></script>
+  <script src="bundle.js" type="module"></script>
+  <style>
+    web-dialog {
+      --dialog-max-width: 70vw;
+    }
+  </style>
+</head>
+<body>
+  <ccf-rui base-href="https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@gh-pages/rui/" use-download="false"></ccf-rui>
+  <template id="dialog-content">
+    <div style="width: 100%;">
+      <div style="text-align: right; width: 100%; margin: 5px;">
+          <button id="download-csv">Download Table as CSV</button>
+      </div>
+      <div id="table" style="width: 100%; height: 65vh; margin: 5px;"></div>
+    </div>
+  </template>
+  <template id="error-content">
+    <p>
+      We identified no collisions between the tissue block and any anatomical structure with a cell type population as part of the Atlas.
+      Please refer to <a target="_blank" href="https://github.com/cns-iu/hra-cell-type-populations-supporting-information/blob/main/data/reports/table-s2.csv">this table</a>
+      for an overview of anatomical structures for which cell type populations exist in the Atlas.
+    </p>
+  </template>
+</body>
+</html>
