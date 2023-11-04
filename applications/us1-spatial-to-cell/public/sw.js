@@ -1,1 +1,1 @@
-import 'https://unpkg.com/hra-api@0.1.0/dist/sw.js';
+import 'https://unpkg.com/hra-api/dist/sw.js';
