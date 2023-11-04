@@ -12,7 +12,7 @@ async function getSimilarHraItems(csvString) {
 window.addEventListener('DOMContentLoaded', async () => {
   const csvInput = document.getElementById('csv-input');
   const submitBtn = document.getElementById('submit-file');
-  
+
   submitBtn.addEventListener('click', async () => {
     if (csvInput.files.length > 0) {
       const csvString = await csvInput.files[0].text();
@@ -40,9 +40,8 @@ function updateAsTable(sources) {
   asTable = new TabulatorFull(document.getElementById('as-table'), {
     data: sources.filter(
       (row) =>
-        !row.cell_source.startsWith(
-          'https://cns-iu.github.io/hra-cell-type-populations-supporting-information/data/datasets.jsonld#'
-        ) && !row.cell_source.startsWith('http://purl.org/ccf/1.5/')
+        !row.cell_source.startsWith('https://purl.humanatlas.io/graph/ctpop') &&
+        !row.cell_source.startsWith('http://purl.org/ccf/1.5/')
     ),
     autoColumns: true,
     initialSort: [
@@ -60,11 +59,7 @@ function updateDatasetsTable(sources) {
     datasetTable.destroy();
   }
   datasetTable = new TabulatorFull(document.getElementById('datasets-table'), {
-    data: sources.filter((row) =>
-      row.cell_source.startsWith(
-        'https://cns-iu.github.io/hra-cell-type-populations-supporting-information/data/datasets.jsonld#'
-      )
-    ),
+    data: sources.filter((row) => row.cell_source.startsWith('https://purl.humanatlas.io/graph/ctpop')),
     autoColumns: true,
     initialSort: [
       { column: 'modality', dir: 'asc' },
