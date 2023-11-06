@@ -1,7 +1,7 @@
 import { TabulatorFull } from 'tabulator-tables';
 import { openDialog } from 'web-dialog';
 
-import('https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@gh-pages/rui/wc.js');
+import('https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@staging/rui/wc.js');
 
 let tabulator;
 
