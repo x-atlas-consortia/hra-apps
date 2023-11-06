@@ -3,7 +3,7 @@ import { TabulatorFull } from 'tabulator-tables';
 import('https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@staging/wc.js');
 
 async function getSimilarHraItems(csvString) {
-  return fetch('/api/ctpop/cell-summary-rui-location', {
+  return fetch('https://apps.humanatlas.io/api/ctpop/cell-summary-rui-location', {
     method: 'POST',
     body: csvString,
   }).then((r) => r.json());

@@ -6,7 +6,7 @@ import('https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@gh-pages/rui/wc.js')
 let tabulator;
 
 async function getCellSummary(ruiLocation) {
-  return fetch('./api/ctpop/rui-location-cell-summary', {
+  return fetch('https://apps.humanatlas.io/api/ctpop/rui-location-cell-summary', {
     method: 'POST',
     body: ruiLocation,
   }).then((r) => r.json());
