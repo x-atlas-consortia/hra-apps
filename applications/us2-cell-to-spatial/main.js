@@ -80,6 +80,7 @@ function updateEui(rui_locations) {
     eui = document.createElement('ccf-eui');
     eui.setAttribute('use-remote-api', 'false');
     eui.setAttribute('hubmap-data-url', '');
+    eui.setAttribute('login-disabled', 'true');
     const container = document.getElementById('results');
     container.appendChild(eui);
   }
