@@ -9,6 +9,9 @@ async function getCellSummary(ruiLocation) {
   return fetch('https://apps.humanatlas.io/api/ctpop/rui-location-cell-summary', {
     method: 'POST',
     body: ruiLocation,
+    headers: {
+      'Content-Type': 'application/json'
+    }
   }).then((r) => r.json());
 }
 

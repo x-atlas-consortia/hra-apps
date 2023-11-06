@@ -6,6 +6,9 @@ async function getSimilarHraItems(csvString) {
   return fetch('https://apps.humanatlas.io/api/ctpop/cell-summary-rui-location', {
     method: 'POST',
     body: csvString,
+    headers: {
+      'Content-Type': 'text/plain'
+    }
   }).then((r) => r.json());
 }
 
