@@ -8,7 +8,7 @@ const template = document.createElement('template');
 template.innerHTML = templateString;
 
 // Apply styles globally (normally not good for web components, but necessary for a full app shell)
-document.addEventListener('DOMContentLoaded', async () => {  
+document.addEventListener('DOMContentLoaded', async () => {
   document.head.appendChild(globalStyles.content.cloneNode(true));
   await Promise.allSettled([customElements.whenDefined('hra-app-shell')]);
   document.body.style.visibility = 'visible';
@@ -25,6 +25,11 @@ class HraAppShell extends HTMLElement {
 
     root.getElementById('logo').addEventListener('click', () => {
       const url = this.getAttribute('logo-url') || '/';
+      location.href = url;
+    });
+
+    root.getElementById('github-corner').addEventListener('click', () => {
+      const url = this.getAttribute('github-url') || 'https://github.com/x-atlas-consortia/hra-apps';
       location.href = url;
     });
   }
