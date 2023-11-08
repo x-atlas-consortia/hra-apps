@@ -19,12 +19,22 @@ class HraAppShell extends HTMLElement {
     super();
 
     this.attachShadow({ mode: 'open' });
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
-    this.shadowRoot.appendChild(globalStyles.content.cloneNode(true));
+    const root = this.shadowRoot;
+    root.appendChild(template.content.cloneNode(true));
+    root.appendChild(globalStyles.content.cloneNode(true));
 
-    this.shadowRoot.getElementById('logo').addEventListener('click', () => {
-      location.href='/';
+    root.getElementById('logo').addEventListener('click', () => {
+      const url = this.getAttribute('logo-url') || '/';
+      location.href = url;
     });
+  }
+
+  connectedCallback() {
+    const root = this.shadowRoot;
+    const logoText = this.getAttribute('logo-text');
+    if (logoText) {
+      root.getElementById('logo').innerHTML = logoText;
+    }
   }
 }
 
