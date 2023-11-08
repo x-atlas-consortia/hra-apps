@@ -1,7 +1,5 @@
 import { TabulatorFull } from 'tabulator-tables';
 
-import('https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@staging/wc.js');
-
 async function getSimilarHraItems(csvString) {
   return fetch('https://apps.humanatlas.io/api/ctpop/cell-summary-rui-location', {
     method: 'POST',
@@ -15,8 +13,11 @@ async function getSimilarHraItems(csvString) {
 window.addEventListener('DOMContentLoaded', async () => {
   const csvInput = document.getElementById('csv-input');
   const submitBtn = document.getElementById('submit-file');
+  const results = document.getElementById('results');
 
   submitBtn.addEventListener('click', async () => {
+    results.style.display = 'none';
+    submitBtn.disabled = true;
     if (csvInput.files.length > 0) {
       const csvString = await csvInput.files[0].text();
       const { sources, rui_locations } = await getSimilarHraItems(csvString);
@@ -25,10 +26,12 @@ window.addEventListener('DOMContentLoaded', async () => {
         updateAsTable(sources);
         updateDatasetsTable(sources);
         updateEui(rui_locations);
+        results.style.display = 'block';
       } else {
         alert('Bad Data');
       }
     }
+    submitBtn.disabled = false;
   });
 });
 
@@ -81,7 +84,7 @@ function updateEui(rui_locations) {
     eui.setAttribute('use-remote-api', 'false');
     eui.setAttribute('hubmap-data-url', '');
     eui.setAttribute('login-disabled', 'true');
-    const container = document.getElementById('results');
+    const container = document.getElementById('eui-container');
     container.appendChild(eui);
   }
 

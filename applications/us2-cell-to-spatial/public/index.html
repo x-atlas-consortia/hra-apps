@@ -4,40 +4,64 @@
   <meta charset="utf-8">
   <title>User Story 2: Predicting 3D Spatial Origins of Tissue Samples</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@staging/styles.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@staging/wc.js" async></script>
+  <script src="/components/hra-app-shell.wc.js"></script>
   <script src="bundle.js" type="module"></script>
 </head>
-<body style="margin: 16px;">
-  <h2>Upload a Cell Summary in CSV format</h2>
-  CSV with header (cell_id,percentage): <input id="csv-input" type="file" accept=".csv, .tsv"> 
-  <select id="organ-input">
-    <option value="">Kidney</option>
-    <option value="">Skin</option>
-    <option value="">Heart</option>
-  </select>
-  <button id="submit-file">Submit</button><br/><br/>
+<body style="visibility: hidden;">
+  <hra-app-shell>
+    <h1>Predict 3D Spatial Origin of Tissue Samples</h1>
 
-  <div id="results" style="display: block; width: 80vw;">
-    <h2>Predicted Anatomical Structures</h2>
-    <div style="width: 100%;">
-      <div style="text-align: right; width: 100%; margin: 5px;">
-          <button id="download-as-csv">Download Table as CSV</button>
-      </div>
-      <div id="as-table" style="width: 100%; height: 65vh; margin: 5px;"></div>
+    <div class="card">
+      <h2>1. Upload a Cell Summary in CSV format</h2>
+      <p>Upload a cell summary CSV file to generate 3D spatial origins of tissue samples.The CSV file must have the header (cell_id,percentage).</p>
+      <p>
+        <input id="csv-input" type="file" accept=".csv, .tsv"> 
+      </p>
+    </div>
+    <div class="card">
+      <h2>2. Select an organ</h2>
+      <p>Select the organ (kidney, skin, or heart) for the uploaded cell summary.</p>
+      <p>
+        <select id="organ-input">
+          <option value="">Kidney</option>
+          <option value="">Skin</option>
+          <option value="">Heart</option>
+        </select>
+      </p>
+      <p>
+        <button id="submit-file">Generate Predictions</button><br/><br/>
+      </p>
     </div>
 
-    <h2>Similar Datasets</h2>
-    <div style="width: 100%;">
-      <div style="text-align: right; width: 100%; margin: 5px;">
-          <button id="download-datasets-csv">Download Table as CSV</button>
+    <div id="results" style="width: 100%; display: none;">
+      <h2>Predicted Anatomical Structures</h2>
+      <div style="width: 100%;">
+        <div style="text-align: right; width: 100%; margin: 5px;">
+            <button id="download-as-csv">Download Table as CSV</button>
+        </div>
+        <div id="as-table" style="width: 100%; height: 65vh; margin: 5px;"></div>
       </div>
-      <div id="datasets-table" style="width: 100%; height: 65vh; margin: 5px;"></div>
-    </div>
 
-    <h2>Similar RUI Locations</h2>
-  </div>
+      <h2>Similar Datasets</h2>
+      <div style="width: 100%;">
+        <div style="text-align: right; width: 100%; margin: 5px;">
+            <button id="download-datasets-csv">Download Table as CSV</button>
+        </div>
+        <div id="datasets-table" style="width: 100%; height: 65vh; margin: 5px;"></div>
+      </div>
+
+      <h2>Similar RUI Locations</h2>
+      <div style="text-align: right; width: 100%; margin: 5px;">
+          <button id="download-as-jsonld">Download as JSON-LD</button>
+      </div>
+      <div id="eui-container" style="margin-left:-5rem; width: 1110px;"></div>
+    </div>
+  </hra-app-shell>
 </body>
 </html>

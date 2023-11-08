@@ -1,0 +1,20 @@
+{
+  "name": "hra-components",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm-run-all build:public build:app",
+    "build:public": "mkdir -p ../dist/components/ && rsync -ru --delete public/ ../dist/components/",
+    "build:app": "npx esbuild src/hra-app-shell/hra-app-shell.js --bundle --minify --line-limit=120 --sourcemap=linked --loader:.html=text --loader:.css=text --outfile=../dist/components/hra-app-shell.wc.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "npm-run-all": "^4.1.5",
+    "tabulator-tables": "^5.5.2",
+    "web-dialog": "^0.0.11"
+  }
+}
