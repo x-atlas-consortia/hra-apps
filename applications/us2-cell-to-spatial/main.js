@@ -1,3 +1,4 @@
+import { saveAs } from 'file-saver';
 import { TabulatorFull } from 'tabulator-tables';
 import sample from './heart-cell-summary.csv';
 
@@ -6,8 +7,8 @@ async function getSimilarHraItems(csvString) {
     method: 'POST',
     body: csvString,
     headers: {
-      'Content-Type': 'text/plain'
-    }
+      'Content-Type': 'text/plain',
+    },
   }).then((r) => r.json());
 }
 
@@ -63,7 +64,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 function setCsvFile(newCsvString, fileName) {
   csvString = newCsvString ? newCsvString : undefined;
-  
+
   const status = document.getElementById('upload-status');
   status.innerHTML = newCsvString ? fileName : 'No file loaded';
 
@@ -127,7 +128,7 @@ function updateDatasetsTable(sources) {
 function clearResults() {
   const results = document.getElementById('results');
   results.style.display = 'none';
-  
+
   const summary = document.getElementById('summary');
   summary.style.display = 'none';
   const settings = document.getElementById('settings');
@@ -152,7 +153,13 @@ function updateEui(rui_locations) {
     container.appendChild(eui);
 
     const button = document.getElementById('download-as-jsonld');
-    button.addEventListener('click', () => alert(JSON.stringify(rui_locations, null, 2)));
+    button.addEventListener('click', () => {
+      const jsonString = JSON.stringify(generatedRuiLocations, null, 2);
+      const fileToSave = new Blob([jsonString], {
+        type: 'application/json',
+      });
+      saveAs(fileToSave, 'rui_locations.jsonld');
+    });
   }
 
   eui.setAttribute('data-sources', JSON.stringify([JSON.stringify(rui_locations)]));
