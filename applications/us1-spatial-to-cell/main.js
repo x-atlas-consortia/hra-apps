@@ -18,7 +18,7 @@ let rui;
 window.addEventListener('DOMContentLoaded', async () => {
   const useSample = document.getElementById('use-sample');
   useSample.addEventListener('click', async () => {
-    setRUILocation(sample);
+    setRUILocation(sample, 'sample-kidney-registration.json');
   });
 
   const submitBtn = document.getElementById('submit-file');
@@ -30,6 +30,14 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
+  const removeBtn = document.getElementById('remove-file');
+  removeBtn.addEventListener('click', async () => {
+    if (ruiLocation) {
+      clearResults();
+      setRUILocation(undefined);
+    }
+  });
+
   const startRui = document.getElementById('start-rui');
   startRui.addEventListener('click', showRUI);
 
@@ -37,23 +45,34 @@ window.addEventListener('DOMContentLoaded', async () => {
   fileInput.addEventListener('change', async () => {
     if (fileInput.files.length > 0) {
       const jsonString = await fileInput.files[0].text();
-      setRUILocation(jsonString);
+      const fileName = fileInput.files[0].name;
+      setRUILocation(jsonString, fileName);
     }
   });
 });
 
-function setRUILocation(location) {
+function setRUILocation(location, fileName) {
   if (!location) {
     ruiLocation = undefined;
   } else if (typeof location !== 'string') {
     location = JSON.stringify(location);
   }
   ruiLocation = location;
+  
+  const status = document.getElementById('upload-status');
+  status.innerHTML = location ? fileName : 'No file loaded';
 
   const submitBtn = document.getElementById('submit-file');
   submitBtn.style.display = !!ruiLocation ? 'block' : 'none';
 
-  console.log(ruiLocation);
+  const removeBtn = document.getElementById('remove-file');
+  removeBtn.style.display = !!ruiLocation ? 'block' : 'none';
+
+  const useSample = document.getElementById('use-sample');
+  useSample.style.display = !!ruiLocation ? 'none' : 'block';
+
+  const uploadFile = document.getElementById('upload-file');
+  uploadFile.style.display = !!ruiLocation ? 'none' : 'block';
 }
 
 function showRUI() {
@@ -63,7 +82,7 @@ function showRUI() {
     rui.setAttribute('base-href', 'https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@staging/rui/');
     rui.setAttribute('use-download', 'false');
     rui.register = (location) => {
-      setRUILocation(location);
+      setRUILocation(location, 'rui-location.json');
       content.style.display = 'none';
     };
     rui.cancelRegistration = () => {
