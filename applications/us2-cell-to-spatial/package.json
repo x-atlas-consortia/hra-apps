@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm-run-all build:public build:app",
     "build:public": "mkdir -p ../../dist/us2/ && rsync -ru --delete public/ ../../dist/us2/",
-    "build:app": "npx esbuild main.js --bundle --format=esm --outfile=../../dist/us2/bundle.js"
+    "build:app": "npx esbuild main.js --bundle --format=esm --loader:.csv=text --outfile=../../dist/us2/bundle.js"
   },
   "author": "",
   "license": "MIT",

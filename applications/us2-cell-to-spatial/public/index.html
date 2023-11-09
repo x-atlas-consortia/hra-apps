@@ -23,7 +23,15 @@
         <h2>1. Upload a Cell Summary in CSV format</h2>
         <p>Upload a cell summary CSV file to generate 3D spatial origins of tissue samples.The CSV file must have the header (cell_id,percentage).</p>
         <p>
-          <input id="csv-input" type="file" accept=".csv, .tsv"> 
+          <span id="upload-status">No file loaded</span><br>
+          <button id="use-sample">Use Sample CSV</button>
+
+          <span id="upload-file">
+            <label class="button" for="file-input">Upload CSV</label>
+            <input id="file-input" style="display: none;" type="file" accept=".csv, .tsv"> 
+          </span>
+
+          <button id="remove-file" style="display: none;">Remove CSV</button>
         </p>
       </div>
       <div class="card">
@@ -37,7 +45,7 @@
           </select>
         </p>
         <p>
-          <button id="submit-file">Generate Predictions</button><br/><br/>
+          <button id="submit-file" style="display: none;">Generate Predictions</button>
         </p>
       </div>
 
@@ -62,7 +70,7 @@
         <div style="text-align: right; width: 100%; margin: 5px;">
             <button id="download-as-jsonld">Download as JSON-LD</button>
         </div>
-        <div id="eui-container" style="margin-left:-5rem; width: 1110px;"></div>
+        <div id="eui-container" style="margin-left:-6rem; width: 1080px;"></div>
       </div>
     </div>
   </hra-app-shell>
