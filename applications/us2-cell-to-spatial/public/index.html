@@ -19,34 +19,49 @@
     <div class="main">
       <h1>Predict 3D Spatial Origin of Tissue Samples</h1>
 
-      <div class="card">
-        <h2>1. Upload a Cell Summary in CSV format</h2>
-        <p>Upload a cell summary CSV file to generate 3D spatial origins of tissue samples.The CSV file must have the header (cell_id,percentage).</p>
-        <p>
-          <span id="upload-status">No file loaded</span><br>
-          <button id="use-sample">Use Sample CSV</button>
+      <div id="settings">
+        <div class="card">
+          <h2>1. Upload a Cell Summary in CSV format</h2>
+          <p>Upload a cell summary CSV file to generate 3D spatial origins of tissue samples.The CSV file must have the header (cell_id,percentage).</p>
+          <p>
+            <span id="upload-status">No file loaded</span><br>
+            <button id="use-sample">Use Sample CSV</button>
 
-          <span id="upload-file">
-            <label class="button" for="file-input">Upload CSV</label>
-            <input id="file-input" style="display: none;" type="file" accept=".csv, .tsv"> 
-          </span>
+            <span id="upload-file">
+              <label class="button" for="file-input">Upload CSV</label>
+              <input id="file-input" style="display: none;" type="file" accept=".csv, .tsv"> 
+            </span>
 
-          <button id="remove-file" style="display: none;">Remove CSV</button>
-        </p>
+            <button id="remove-file" style="display: none;">Remove CSV</button>
+          </p>
+        </div>
+        <div class="card">
+          <h2>2. Select an organ</h2>
+          <p>Select the organ (kidney, skin, or heart) for the uploaded cell summary.</p>
+          <p>
+            <select id="organ-input">
+              <option value="">Kidney</option>
+              <option value="">Skin</option>
+              <option value="">Heart</option>
+            </select>
+          </p>
+          <p>
+            <button id="submit-file" style="display: none;">Generate Predictions</button>
+          </p>
+        </div>
       </div>
-      <div class="card">
-        <h2>2. Select an organ</h2>
-        <p>Select the organ (kidney, skin, or heart) for the uploaded cell summary.</p>
-        <p>
-          <select id="organ-input">
-            <option value="">Kidney</option>
-            <option value="">Skin</option>
-            <option value="">Heart</option>
-          </select>
-        </p>
-        <p>
-          <button id="submit-file" style="display: none;">Generate Predictions</button>
-        </p>
+
+      <div id="summary" style="display: none;">
+        <h2>Predicted Results for Input File and Organ</h2>
+        <div class="card">
+          <h3>Cell Summary Upload:</h3>
+          <p id="uploaded-file"></p>
+        </div>
+        <div class="card">
+          <h3>Organ Selection:</h3>
+          <p id="organ-selected"></p>
+        </div>
+        <p><button id="start-over">Start Over</button></p>
       </div>
 
       <div id="results" style="width: 100%; display: none;">

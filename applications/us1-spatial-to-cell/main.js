@@ -49,6 +49,12 @@ window.addEventListener('DOMContentLoaded', async () => {
       setRUILocation(jsonString, fileName);
     }
   });
+
+  const startOverBtn = document.getElementById('start-over');
+  startOverBtn.addEventListener('click', async () => {
+    clearResults();
+    setRUILocation(undefined);
+  });
 });
 
 function setRUILocation(location, fileName) {
@@ -61,6 +67,9 @@ function setRUILocation(location, fileName) {
   
   const status = document.getElementById('upload-status');
   status.innerHTML = location ? fileName : 'No file loaded';
+
+  const uploadedFile = document.getElementById('uploaded-file');
+  uploadedFile.innerHTML = location ? fileName : 'No file loaded';
 
   const submitBtn = document.getElementById('submit-file');
   submitBtn.style.display = !!ruiLocation ? 'block' : 'none';
@@ -99,9 +108,19 @@ function showRUI() {
 function clearResults() {
   const results = document.getElementById('results');
   results.innerHTML = '';
+
+  const summary = document.getElementById('summary');
+  summary.style.display = 'none';
+  const settings = document.getElementById('settings');
+  settings.style.display = 'block';
 }
 
 function showCellSummary(cellSummary) {
+  const summary = document.getElementById('summary');
+  summary.style.display = 'block';
+  const settings = document.getElementById('settings');
+  settings.style.display = 'none';
+
   const results = document.getElementById('results');
   results.innerHTML = '';
 

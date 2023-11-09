@@ -23,28 +23,39 @@
     <div class="main">
       <h1>Improve Cell Type Annotation</h1>
 
-      <div class="card">
-        <h2>Upload a RUI Location</h2>
-        <p>Upload an existing Registration User Interface (RUI) location JSON-LD file or use the sample file to generate a cell type summary.</p>
-        <p>
-          <span id="upload-status">No file loaded</span><br>
-          <button id="use-sample">Use Sample JSON-LD</button>
+      <div id="settings">
+        <div class="card">
+          <h2>Upload a RUI Location</h2>
+          <p>Upload an existing Registration User Interface (RUI) location JSON-LD file or use the sample file to generate a cell type summary.</p>
+          <p>
+            <span id="upload-status">No file loaded</span><br>
+            <button id="use-sample">Use Sample JSON-LD</button>
 
-          <span id="upload-file">
-            <label class="button" for="file-input">Upload JSON-LD</label>
-            <input id="file-input" style="display: none;" type="file" accept=".json, .jsonld, .json-ld"> 
-          </span>
-          
-          <button id="remove-file" style="display: none;">Remove JSON-LD</button>
-          <button id="submit-file" style="display: none;">Generate Summary</button>
-        </p>
+            <span id="upload-file">
+              <label class="button" for="file-input">Upload JSON-LD</label>
+              <input id="file-input" style="display: none;" type="file" accept=".json, .jsonld, .json-ld"> 
+            </span>
+            
+            <button id="remove-file" style="display: none;">Remove JSON-LD</button>
+            <button id="submit-file" style="display: none;">Generate Summary</button>
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Create a New RUI Location</h2>
+          <p>Create a new Registration User Interface (RUI) location by placing a tissue block to generate a cell type summary.</p>
+  
+          <button id="start-rui">Create RUI Location</button>
+        </div>
       </div>
 
-      <div class="card">
-        <h2>Create a New RUI Location</h2>
-        <p>Create a new Registration User Interface (RUI) location by placing a tissue block to generate a cell type summary.</p>
-
-        <button id="start-rui">Create RUI Location</button>
+      <div id="summary" style="display: none;">
+        <h2>Predicted Results for Input File</h2>
+        <div class="card">
+          <h3>Cell Summary Upload:</h3>
+          <p id="uploaded-file"></p>
+        </div>
+        <p><button id="start-over">Start Over</button></p>
       </div>
 
       <div id="results" style="width: 100%; display: none;">

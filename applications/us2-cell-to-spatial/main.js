@@ -53,6 +53,12 @@ window.addEventListener('DOMContentLoaded', async () => {
       setCsvFile(csvString, fileName);
     }
   });
+
+  const startOverBtn = document.getElementById('start-over');
+  startOverBtn.addEventListener('click', async () => {
+    clearResults();
+    setCsvFile(undefined);
+  });
 });
 
 function setCsvFile(newCsvString, fileName) {
@@ -60,6 +66,9 @@ function setCsvFile(newCsvString, fileName) {
   
   const status = document.getElementById('upload-status');
   status.innerHTML = newCsvString ? fileName : 'No file loaded';
+
+  const uploadedFile = document.getElementById('uploaded-file');
+  uploadedFile.innerHTML = location ? fileName : 'No file loaded';
 
   const submitBtn = document.getElementById('submit-file');
   submitBtn.style.display = !!csvString ? 'block' : 'none';
@@ -118,9 +127,19 @@ function updateDatasetsTable(sources) {
 function clearResults() {
   const results = document.getElementById('results');
   results.style.display = 'none';
+  
+  const summary = document.getElementById('summary');
+  summary.style.display = 'none';
+  const settings = document.getElementById('settings');
+  settings.style.display = 'block';
 }
 
 function updateEui(rui_locations) {
+  const summary = document.getElementById('summary');
+  summary.style.display = 'block';
+  const settings = document.getElementById('settings');
+  settings.style.display = 'none';
+
   // Construct EUI
   let eui = document.getElementsByTagName('ccf-eui')[0];
   generatedRuiLocations = rui_locations;
