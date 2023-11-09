@@ -1,11 +1,12 @@
+import globalCssString from './hra-app-shell.global.css';
 import cssString from './hra-app-shell.css';
 import templateString from './hra-app-shell.html';
 
 const globalStyles = document.createElement('template');
-globalStyles.innerHTML = `<style>${cssString}</style>`;
+globalStyles.innerHTML = `<style>${globalCssString}</style>`;
 
 const template = document.createElement('template');
-template.innerHTML = templateString;
+template.innerHTML = `${templateString}<style>${cssString}</style>`;
 
 // Apply styles globally (normally not good for web components, but necessary for a full app shell)
 document.addEventListener('DOMContentLoaded', async () => {
@@ -15,30 +16,59 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 class HraAppShell extends HTMLElement {
+  $logo;
+  $github;
+
   constructor() {
     super();
-
-    this.attachShadow({ mode: 'open' });
-    const root = this.shadowRoot;
+    const root = this.attachShadow({ mode: 'open' });
     root.appendChild(template.content.cloneNode(true));
-    root.appendChild(globalStyles.content.cloneNode(true));
-
-    root.getElementById('logo').addEventListener('click', () => {
-      const url = this.getAttribute('logo-url') || '/';
-      location.href = url;
-    });
-
-    root.getElementById('github-corner').addEventListener('click', () => {
-      const url = this.getAttribute('github-url') || 'https://github.com/x-atlas-consortia/hra-apps';
-      location.href = url;
-    });
+    this.$logo = root.getElementById('logo');
+    this.$github = root.getElementById('github-corner');
   }
 
   connectedCallback() {
-    const root = this.shadowRoot;
-    const logoText = this.getAttribute('logo-text');
-    if (logoText) {
-      root.getElementById('logo').innerHTML = logoText;
+    this.logoText = this.getAttribute('logo-text') || 'Human Reference Atlas';
+    this.logoUrl = this.getAttribute('logo-url');
+    this.githubUrl = this.getAttribute('github-url');
+  }
+
+  get githubUrl() {
+    return this.getAttribute('github-url');
+  }
+
+  set githubUrl(url) {
+    this.$github.style.display = url ? 'block' : 'none';
+    this.$github.href = url;
+    if (url !== this.githubUrl) {
+      this.setAttribute('github-url', url);
+    }
+  }
+
+  get logoText() {
+    return this.getAttribute('logo-text');
+  }
+
+  set logoText(str) {
+    this.$logo.innerHTML = str;
+    if (str !== this.logoText) {
+      this.setAttribute('logo-text', str);
+    }
+  }
+
+  get logoUrl() {
+    return this.getAttribute('logo-url');
+  }
+
+  set logoUrl(str) {
+    if (str) {
+      this.$logo.setAttribute('href', str);
+    } else {
+      this.$logo.removeAttribute('href');
+    }
+    this.$logo.style.cursor = str ? 'pointer': 'default';
+    if (str !== this.logoUrl) {
+      this.setAttribute('logo-url', str);
     }
   }
 }

@@ -14,53 +14,56 @@
   <script src="bundle.js" type="module"></script>
 </head>
 <body style="visibility: hidden;">
-  <hra-app-shell github-url="https://github.com/x-atlas-consortia/hra-apps/tree/main/applications/us2-cell-to-spatial/">
-    <h1>Predict 3D Spatial Origin of Tissue Samples</h1>
+  <hra-app-shell logo-text="Human Reference Atlas Applications" logo-url="/"
+    github-url="https://github.com/x-atlas-consortia/hra-apps/tree/main/applications/us2-cell-to-spatial/">
+    <div class="main">
+      <h1>Predict 3D Spatial Origin of Tissue Samples</h1>
 
-    <div class="card">
-      <h2>1. Upload a Cell Summary in CSV format</h2>
-      <p>Upload a cell summary CSV file to generate 3D spatial origins of tissue samples.The CSV file must have the header (cell_id,percentage).</p>
-      <p>
-        <input id="csv-input" type="file" accept=".csv, .tsv"> 
-      </p>
-    </div>
-    <div class="card">
-      <h2>2. Select an organ</h2>
-      <p>Select the organ (kidney, skin, or heart) for the uploaded cell summary.</p>
-      <p>
-        <select id="organ-input">
-          <option value="">Kidney</option>
-          <option value="">Skin</option>
-          <option value="">Heart</option>
-        </select>
-      </p>
-      <p>
-        <button id="submit-file">Generate Predictions</button><br/><br/>
-      </p>
-    </div>
+      <div class="card">
+        <h2>1. Upload a Cell Summary in CSV format</h2>
+        <p>Upload a cell summary CSV file to generate 3D spatial origins of tissue samples.The CSV file must have the header (cell_id,percentage).</p>
+        <p>
+          <input id="csv-input" type="file" accept=".csv, .tsv"> 
+        </p>
+      </div>
+      <div class="card">
+        <h2>2. Select an organ</h2>
+        <p>Select the organ (kidney, skin, or heart) for the uploaded cell summary.</p>
+        <p>
+          <select id="organ-input">
+            <option value="">Kidney</option>
+            <option value="">Skin</option>
+            <option value="">Heart</option>
+          </select>
+        </p>
+        <p>
+          <button id="submit-file">Generate Predictions</button><br/><br/>
+        </p>
+      </div>
 
-    <div id="results" style="width: 100%; display: none;">
-      <h2>Predicted Anatomical Structures</h2>
-      <div style="width: 100%;">
-        <div style="text-align: right; width: 100%; margin: 5px;">
-            <button id="download-as-csv">Download Table as CSV</button>
+      <div id="results" style="width: 100%; display: none;">
+        <h2>Predicted Anatomical Structures</h2>
+        <div style="width: 100%;">
+          <div style="text-align: right; width: 100%; margin: 5px;">
+              <button id="download-as-csv">Download Table as CSV</button>
+          </div>
+          <div id="as-table" style="width: 100%; height: 65vh; margin: 5px;"></div>
         </div>
-        <div id="as-table" style="width: 100%; height: 65vh; margin: 5px;"></div>
-      </div>
 
-      <h2>Similar Datasets</h2>
-      <div style="width: 100%;">
-        <div style="text-align: right; width: 100%; margin: 5px;">
-            <button id="download-datasets-csv">Download Table as CSV</button>
+        <h2>Similar Datasets</h2>
+        <div style="width: 100%;">
+          <div style="text-align: right; width: 100%; margin: 5px;">
+              <button id="download-datasets-csv">Download Table as CSV</button>
+          </div>
+          <div id="datasets-table" style="width: 100%; height: 65vh; margin: 5px;"></div>
         </div>
-        <div id="datasets-table" style="width: 100%; height: 65vh; margin: 5px;"></div>
-      </div>
 
-      <h2>Similar RUI Locations</h2>
-      <div style="text-align: right; width: 100%; margin: 5px;">
-          <button id="download-as-jsonld">Download as JSON-LD</button>
+        <h2>Similar RUI Locations</h2>
+        <div style="text-align: right; width: 100%; margin: 5px;">
+            <button id="download-as-jsonld">Download as JSON-LD</button>
+        </div>
+        <div id="eui-container" style="margin-left:-5rem; width: 1110px;"></div>
       </div>
-      <div id="eui-container" style="margin-left:-5rem; width: 1110px;"></div>
     </div>
   </hra-app-shell>
 </body>
