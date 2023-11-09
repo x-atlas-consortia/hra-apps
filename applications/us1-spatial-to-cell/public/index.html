@@ -4,10 +4,12 @@
   <meta charset="utf-8">
   <title>User Story 1: Improving Cell Type Annotations</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@staging/rui/styles.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@staging/rui/wc.js" async></script>
+  <script src="/components/hra-app-shell.wc.js"></script>
   <script src="bundle.js" type="module"></script>
   <style>
     web-dialog {
@@ -16,7 +18,48 @@
   </style>
 </head>
 <body>
-  <ccf-rui base-href="https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@staging/rui/" use-download="false"></ccf-rui>
+  <hra-app-shell logo-text="Human Reference Atlas Applications" logo-url="/"
+    github-url="https://github.com/x-atlas-consortia/hra-apps/tree/main/applications/us2-cell-to-spatial/">
+    <div class="main">
+      <h1>Improve Cell Type Annotation</h1>
+
+      <div class="card">
+        <h2>Upload a RUI Location</h2>
+        <p>Upload an existing Registration User Interface (RUI) location JSON-LD file or use the sample file to generate a cell type summary.</p>
+        <p>
+          <span id="upload-status">No file loaded</span><br>
+          <button id="use-sample">Use Sample JSON-LD</button>
+
+          <span id="upload-file">
+            <label class="button" for="file-input">Upload JSON-LD</label>
+            <input id="file-input" style="display: none;" type="file" accept=".json, .jsonld, .json-ld"> 
+          </span>
+          
+          <button id="submit-file" style="display: none;">Generate Summary</button>
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Create a New RUI Location</h2>
+        <p>Create a new Registration User Interface (RUI) location by placing a tissue block to generate a cell type summary.</p>
+
+        <button id="start-rui">Create RUI Location</button>
+      </div>
+
+      <div id="results" style="width: 100%; display: none;">
+        <h2>Cell Type Summary</h2>
+        <div style="width: 100%;">
+          <div style="text-align: right; width: 100%; margin: 5px;">
+              <button id="download-csv">Download Table as CSV</button>
+          </div>
+          <div id="table" style="width: 100%; height: 65vh; margin: 5px;"></div>
+        </div>
+      </div>
+    </div>
+  </hra-app-shell>
+
+  <div id="rui-wrapper" style="display: none; position: absolute; top: 5vh; left: 5vw; width: 90vw; height: 90vh; border: 4px solid black;"></div>
+
   <template id="dialog-content">
     <div style="width: 100%;">
       <div style="text-align: right; width: 100%; margin: 5px;">

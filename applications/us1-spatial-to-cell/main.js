@@ -1,33 +1,95 @@
 import { TabulatorFull } from 'tabulator-tables';
-import { openDialog } from 'web-dialog';
-
-import('https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@staging/rui/wc.js');
-
-let tabulator;
+import sample from './registration-data.json';
 
 async function getCellSummary(ruiLocation) {
   return fetch('https://apps.humanatlas.io/api/ctpop/rui-location-cell-summary', {
     method: 'POST',
     body: ruiLocation,
     headers: {
-      'Content-Type': 'application/json'
-    }
+      'Content-Type': 'application/json',
+    },
   }).then((r) => r.json());
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  const rui = document.querySelector('ccf-rui');
-  rui.register = async (ruiLocation) => {
-    const cellSummary = await getCellSummary(ruiLocation);
-    showCellSummary(cellSummary);
-  };
+let tabulator;
+let ruiLocation;
+let rui;
+
+window.addEventListener('DOMContentLoaded', async () => {
+  const useSample = document.getElementById('use-sample');
+  useSample.addEventListener('click', async () => {
+    setRUILocation(sample);
+  });
+
+  const submitBtn = document.getElementById('submit-file');
+  submitBtn.addEventListener('click', async () => {
+    if (ruiLocation) {
+      clearResults();
+      const cellSummary = await getCellSummary(ruiLocation);
+      showCellSummary(cellSummary);
+    }
+  });
+
+  const startRui = document.getElementById('start-rui');
+  startRui.addEventListener('click', showRUI);
+
+  const fileInput = document.getElementById('file-input');
+  fileInput.addEventListener('change', async () => {
+    if (fileInput.files.length > 0) {
+      const jsonString = await fileInput.files[0].text();
+      setRUILocation(jsonString);
+    }
+  });
 });
 
+function setRUILocation(location) {
+  if (!location) {
+    ruiLocation = undefined;
+  } else if (typeof location !== 'string') {
+    location = JSON.stringify(location);
+  }
+  ruiLocation = location;
+
+  const submitBtn = document.getElementById('submit-file');
+  submitBtn.style.display = !!ruiLocation ? 'block' : 'none';
+
+  console.log(ruiLocation);
+}
+
+function showRUI() {
+  const content = document.getElementById('rui-wrapper');
+  if (!rui) {
+    rui = document.createElement('ccf-rui');
+    rui.setAttribute('base-href', 'https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@staging/rui/');
+    rui.setAttribute('use-download', 'false');
+    rui.register = (location) => {
+      setRUILocation(location);
+      content.style.display = 'none';
+    };
+    rui.cancelRegistration = () => {
+      content.style.display = 'none';
+    };
+    content.appendChild(rui);
+  }
+
+  rui.editRegistration = undefined;
+  content.style.display = 'block';
+  clearResults();
+}
+
+function clearResults() {
+  const results = document.getElementById('results');
+  results.innerHTML = '';
+}
+
 function showCellSummary(cellSummary) {
+  const results = document.getElementById('results');
+  results.innerHTML = '';
+
   if (cellSummary.length === 0) {
     // Show a popup explaining no results
     const content = document.getElementById('error-content').content.cloneNode(true);
-    openDialog({ $content: content });
+    results.appendChild(content);
   } else {
     const content = document.getElementById('dialog-content').content.cloneNode(true);
 
@@ -44,7 +106,7 @@ function showCellSummary(cellSummary) {
     const button = content.getElementById('download-csv');
     button.addEventListener('click', () => tabulator.download('csv', 'cell-summary.csv'));
 
-    // Open the dialog box showing the cell summary
-    openDialog({ $content: content });
+    results.appendChild(content);
   }
+  results.style.display = 'block';
 }
