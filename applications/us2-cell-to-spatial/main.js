@@ -7,7 +7,7 @@ async function getSimilarHraItems(csvString) {
     method: 'POST',
     body: csvString,
     headers: {
-      'Content-Type': 'text/plain',
+      'Content-Type': 'text/csv',
     },
   }).then((r) => r.json());
 }
