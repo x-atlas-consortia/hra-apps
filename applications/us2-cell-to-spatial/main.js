@@ -3,7 +3,7 @@ import { TabulatorFull } from 'tabulator-tables';
 import sample from './heart-cell-summary.csv';
 
 async function getSimilarHraItems(csvString) {
-  return fetch('https://apps.humanatlas.io/api/ctpop/cell-summary-rui-location', {
+  return fetch('https://apps.humanatlas.io/api/ctpop/cell-summary-report', {
     method: 'POST',
     body: csvString,
     headers: {
