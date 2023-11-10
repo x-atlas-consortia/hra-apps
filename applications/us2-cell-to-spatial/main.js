@@ -12,10 +12,16 @@ async function getSimilarHraItems(csvString) {
   }).then((r) => r.json());
 }
 
+async function getSupportedOrgans() {
+  return fetch('https://apps.humanatlas.io/api/ctpop/supported-organs').then((r) => r.json());
+}
+
 let csvString;
 let generatedRuiLocations;
 
 window.addEventListener('DOMContentLoaded', async () => {
+  updateOrganDropdown();
+
   const useSample = document.getElementById('use-sample');
   useSample.addEventListener('click', async () => {
     setCsvFile(sample, 'heart-cell-summary.csv');
@@ -61,6 +67,14 @@ window.addEventListener('DOMContentLoaded', async () => {
     setCsvFile(undefined);
   });
 });
+
+async function updateOrganDropdown() {
+  const organs = await getSupportedOrgans();
+  const $organs = document.getElementById('organ-input');
+  $organs.innerHTML = organs
+    .map(({ organ_iri, organ_label }) => `<option value="${organ_iri}">${organ_label}</option>`)
+    .join('\n');
+}
 
 function setCsvFile(newCsvString, fileName) {
   csvString = newCsvString ? newCsvString : undefined;
