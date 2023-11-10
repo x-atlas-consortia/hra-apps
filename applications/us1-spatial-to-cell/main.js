@@ -88,7 +88,7 @@ function showRUI() {
   const content = document.getElementById('rui-wrapper');
   if (!rui) {
     rui = document.createElement('ccf-rui');
-    rui.setAttribute('base-href', 'https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@staging/rui/');
+    rui.setAttribute('base-href', 'https://cdn.jsdelivr.net/gh/hubmapconsortium/ccf-ui@gh-pages/rui/');
     rui.setAttribute('use-download', 'false');
     rui.register = (location) => {
       setRUILocation(location, 'rui-location.json');
