@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(250,250,250,1);
+  background-color: rgba(250, 250, 250, 1);
   font-family: 'Inter', 'Inter Variable', sans-serif;
   margin: 0;
   padding: 0;
@@ -9,22 +9,34 @@ body {
   box-sizing: border-box;
 }
 
-.main button, .main .button {
-  color: rgba(255, 255, 255, 1);
+.light-btn {
+  color: rgba(68, 76, 101, 1) !important;
+  background-color: white;
+}
+
+.dark-btn {
+  color: rgba(255, 255, 255, 1) !important;
   background-color: rgba(68, 76, 101, 1);
-  font-weight: 700;
-  font-size: 14px;
+}
+
+.btn {
   cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
 }
 
 .main {
   display: block;
-  background-color: rgba(255,255,255,1);
+  background-color: rgba(255, 255, 255, 1);
   line-height: 1.5rem;
   color: rgba(33, 33, 33, 1);
 }
 
-.main h1, .main h2, .main h3 {
+.main h1,
+.main h2,
+.main h3 {
   line-height: 1.25em;
   font-weight: 400;
 }
@@ -34,8 +46,13 @@ body {
   font-size: 2rem;
 }
 
+.main h2 {
+  margin-bottom: 3rem;
+}
+
 .main h3 {
-  margin: 3rem 0 0;
+  margin: 0 0 1.5rem;
+  font-size: 1.25rem;
 }
 
 .main p {
@@ -59,11 +76,13 @@ body {
   min-width: 14.5rem;
 }
 
-.main table tr td, .main table {
+.main table tr td,
+.main table {
   border: 0;
 }
 
-.main table tr td, .main table tr th {
+.main table tr td,
+.main table tr th {
   border: 0;
   border-bottom: 1px solid #e0e0e0;
   padding: .75rem;
@@ -82,12 +101,100 @@ body {
   text-decoration: none;
 }
 
-.main a:link, .main a:visited {
+.main a:link,
+.main a:visited {
   color: rgb(55, 129, 209);
 }
 
 .main a:hover {
-  background-color: #fafafa;
-  text-decoration: underline;
   cursor: pointer;
+}
+
+.page-title {
+  margin-bottom: 4rem;
+}
+
+.apps-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  width: 46%;
+  border-left: solid 1px black;
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.height-card {
+  min-height: 17rem;
+  min-width: 25rem;
+}
+
+.filler {
+  flex-grow: 1;
+}
+
+.demonstration {
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 428px) {
+  .card {
+    width: unset;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Improve CTA */
+#upload-status {
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+@media screen and (max-width: 428px) {
+  .height-card {
+    min-width: unset;
+  }
+}
+
+/* Predict 3d */
+.custom-select {
+  min-width: 160px;
+  position: relative;
+}
+
+select {
+  appearance: none;
+  width: 100%;
+  font-size: 1.15rem;
+  padding: 0.5rem;
+  background-color: #fff;
+  border: unset;
+  border-bottom: 1px solid #444c65;
+  color: #444c65;
+  cursor: pointer;
+}
+
+.custom-select::before,
+.custom-select::after {
+  position: absolute;
+  content: "";
+  right: 1rem;
+  pointer-events: none;
+}
+
+.custom-select::after {
+  border-left: 0.3rem solid transparent;
+  border-right: 0.3rem solid transparent;
+  border-top: 0.3rem solid black;
+  top: 40%;
+}
+
+#organ-input:focus-visible {
+  outline: unset;
 }
