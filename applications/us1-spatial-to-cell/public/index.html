@@ -24,13 +24,13 @@
       <h1 class="page-title">Improve Cell Type Annotation</h1>
 
       <div id="settings">
-        <div class="apps-container">
+        <div class="card-container">
           <div class="height-card card">
             <h3>Upload a RUI Location</h3>
             <p>Upload an existing Registration User Interface (RUI) location JSON-LD file or use the sample file to
               generate a cell type summary.</p>
             <div class="filler"></div>
-            <span>
+            <span style="width: 100%;">
               <span id="upload-status">No file loaded</span><br>
               <button id="use-sample" class="light-btn btn">Use Sample JSON-LD</button>
 
@@ -39,8 +39,10 @@
                 <input id="file-input" style="display: none;" type="file" accept=".json, .jsonld, .json-ld">
               </span>
 
-              <button id="remove-file" style="display: none;" class="btn light-btn">Remove JSON-LD</button>
-              <button id="submit-file" style="display: none;" class="btn dark-btn">Generate Summary</button>
+              <div class="btn-uploaded">
+                <button id="remove-file" style="display: none;" class="btn light-btn">Remove JSON-LD</button>
+                <button id="submit-file" style="display: none;" class="btn dark-btn">Generate Summary</button>
+              </div>
             </span>
           </div>
 

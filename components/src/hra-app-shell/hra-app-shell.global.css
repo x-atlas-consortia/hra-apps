@@ -27,6 +27,12 @@ body {
   font-weight: 700;
 }
 
+.btn-uploaded {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .main {
   display: block;
   background-color: rgba(255, 255, 255, 1);
@@ -114,7 +120,7 @@ body {
   margin-bottom: 4rem;
 }
 
-.apps-container {
+.card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -163,38 +169,16 @@ body {
 }
 
 /* Predict 3d */
-.custom-select {
-  min-width: 160px;
-  position: relative;
+:root {
+  --md-filled-select-text-field-input-text-font: system-ui;
+  --md-sys-typescale-body-large-font: system-ui;
+  --md-filled-select-text-field-container-color: #fff;
 }
 
-select {
-  appearance: none;
-  width: 100%;
-  font-size: 1.15rem;
-  padding: 0.5rem;
-  background-color: #fff;
-  border: unset;
-  border-bottom: 1px solid #444c65;
-  color: #444c65;
-  cursor: pointer;
-}
-
-.custom-select::before,
-.custom-select::after {
-  position: absolute;
-  content: "";
-  right: 1rem;
-  pointer-events: none;
-}
-
-.custom-select::after {
-  border-left: 0.3rem solid transparent;
-  border-right: 0.3rem solid transparent;
-  border-top: 0.3rem solid black;
-  top: 40%;
-}
-
-#organ-input:focus-visible {
-  outline: unset;
+md-filled-select::part(menu) {
+  --md-menu-container-color: #fff;
+  --md-menu-container-shape: 0px;
+  --md-sys-typescale-body-large-weight: 700;
+  --md-sys-color-secondary-container: #444c65;
+  --md-menu-item-selected-label-text-color: #fff;
 }
