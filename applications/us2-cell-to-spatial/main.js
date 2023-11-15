@@ -2,6 +2,9 @@ import { saveAs } from 'file-saver';
 import { TabulatorFull } from 'tabulator-tables';
 import sample from './heart-cell-summary.csv';
 
+import '@material/web/select/select-option.js';
+import '@material/web/select/filled-select.js';
+
 async function getSimilarHraItems(csvString) {
   return fetch('https://apps.humanatlas.io/api/ctpop/cell-summary-report', {
     method: 'POST',
@@ -20,7 +23,7 @@ let csvString;
 let generatedRuiLocations;
 
 window.addEventListener('DOMContentLoaded', async () => {
-  updateOrganDropdown();
+  updateOrganDropdownWebComponent();
 
   const useSample = document.getElementById('use-sample');
   useSample.addEventListener('click', async () => {
@@ -73,6 +76,16 @@ async function updateOrganDropdown() {
   const $organs = document.getElementById('organ-input');
   $organs.innerHTML = organs
     .map(({ organ_iri, organ_label }) => `<option value="${organ_iri}">${organ_label}</option>`)
+    .join('\n');
+}
+
+async function updateOrganDropdownWebComponent() {
+  const organs = await getSupportedOrgans();
+  const $organs = document.getElementById('organ-input-wc');
+  $organs.innerHTML = organs
+    .map(({ organ_iri, organ_label }) => `<md-select-option value="${organ_iri}">
+    <div slot="headline">${organ_label}</div>
+    </md-select-option>`)
     .join('\n');
 }
 
