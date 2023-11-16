@@ -66,7 +66,7 @@ function setRUILocation(location, fileName) {
   ruiLocation = location;
   
   const status = document.getElementById('upload-status');
-  status.innerHTML = location ? fileName : 'No file loaded';
+  status.innerHTML = location ? `File loaded: ${fileName}` : 'No file loaded';
 
   const uploadedFile = document.getElementById('uploaded-file');
   uploadedFile.innerHTML = location ? fileName : 'No file loaded';

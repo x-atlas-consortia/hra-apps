@@ -17,6 +17,7 @@ body {
 .dark-btn {
   color: rgba(255, 255, 255, 1) !important;
   background-color: rgba(68, 76, 101, 1);
+  border: solid #444c65 1px;
 }
 
 .btn {
@@ -149,6 +150,14 @@ body {
   margin-bottom: 2rem;
 }
 
+.rui-wrapper {
+  display: none; 
+  position: absolute; 
+  top: 0px;
+  width: 100vw; 
+  height: 100vh; 
+}
+
 @media screen and (max-width: 428px) {
   .card {
     width: unset;
@@ -160,6 +169,22 @@ body {
 #upload-status {
   margin-bottom: 0.5rem;
   display: inline-block;
+}
+
+.sample-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.download-as {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.download-as h2 {
+  margin: 0;
 }
 
 @media screen and (max-width: 428px) {
@@ -181,4 +206,8 @@ md-filled-select::part(menu) {
   --md-sys-typescale-body-large-weight: 700;
   --md-sys-color-secondary-container: #444c65;
   --md-menu-item-selected-label-text-color: #fff;
+}
+
+.download-csv h2 {
+  margin: 0;
 }
