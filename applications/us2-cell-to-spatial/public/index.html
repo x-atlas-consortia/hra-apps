@@ -17,42 +17,38 @@
   <hra-app-shell logo-text="Human Reference Atlas Applications" logo-url="/"
     github-url="https://github.com/x-atlas-consortia/hra-apps/tree/main/applications/us2-cell-to-spatial/#readme">
     <div class="main">
-      <h1>Predict 3D Spatial Origin of Tissue Samples</h1>
+      <h1 class="page-title">Predict 3D Spatial Origin of Tissue Samples</h1>
 
       <div id="settings">
-        <div class="card">
-          <h2>1. Upload a Cell Summary in CSV format</h2>
-          <p>Upload a cell summary CSV file to generate 3D spatial origins of tissue samples.The CSV file must have the header (cell_id,percentage).</p>
-          <p>
-            <span id="upload-status">No file loaded</span><br>
-            <button id="use-sample">Use Sample CSV</button>
+        <div class="card-container">
+          <div class="card height-card">
+            <h3>1. Upload a Cell Summary in CSV format</h3>
+            <p>Upload a cell summary CSV file to generate 3D spatial origins of tissue samples.The CSV file must have
+              the header (cell_id,percentage).</p>
+            <div class="filler"></div>
+            <p>
+              <span id="upload-status">No file loaded</span><br>
+              <button id="use-sample" class="btn light-btn">Use Sample CSV</button>
 
-            <span id="upload-file">
-              <label class="button" for="file-input">Upload CSV</label>
-              <input id="file-input" style="display: none;" type="file" accept=".csv, .tsv"> 
-            </span>
+              <span id="upload-file">
+                <label class="btn dark-btn" for="file-input">Upload CSV</label>
+                <input id="file-input" style="display: none;" type="file" accept=".csv, .tsv">
+              </span>
 
-            <button id="remove-file" style="display: none;">Remove CSV</button>
-          </p>
-        </div>
-        <div class="card">
-          <h2>2. Select an organ</h2>
-          <p>Select the organ (kidney, skin, heart, etc.) for the uploaded cell summary.</p>
-          <p>
-            <select id="organ-input">
-              <option value="http://purl.obolibrary.org/obo/UBERON_0000948">heart</option>
-              <option value="http://purl.obolibrary.org/obo/UBERON_0002113">kidney</option>
-              <option value="http://purl.obolibrary.org/obo/UBERON_0000059">large intestine</option>
-              <option value="http://purl.obolibrary.org/obo/UBERON_0002048">lung</option>
-              <option value="http://purl.obolibrary.org/obo/UBERON_0001911">mammary gland</option>
-              <option value="http://purl.obolibrary.org/obo/UBERON_0002097">skin</option>
-              <option value="http://purl.obolibrary.org/obo/UBERON_0002108">small intestine</option>
-              <option value="http://purl.obolibrary.org/obo/UBERON_0000056">ureter</option>
-            </select>
-          </p>
-          <p>
-            <button id="submit-file" style="display: none;">Generate Predictions</button>
-          </p>
+              <button id="remove-file" style="display: none;" class="btn light-btn">Remove CSV</button>
+            </p>
+          </div>
+          <div class="card">
+            <h3>2. Select an organ</h3>
+            <p>Select the organ (kidney, skin, heart, etc.) for the uploaded cell summary.</p>
+              <md-filled-select id="organ-input">
+                
+              </md-filled-select>
+            <div class="filler"></div>
+            <p>
+              <button id="submit-file" style="display: none;" class="btn dark-btn">Generate Predictions</button>
+            </p>
+          </div>
         </div>
       </div>
 
@@ -73,7 +69,7 @@
         <h2>Predicted Anatomical Structures</h2>
         <div style="width: 100%;">
           <div style="text-align: right; width: 100%; margin: 5px;">
-              <button id="download-as-csv">Download Table as CSV</button>
+            <button id="download-as-csv">Download Table as CSV</button>
           </div>
           <div id="as-table" style="width: 100%; height: 65vh; margin: 5px;"></div>
         </div>
@@ -81,18 +77,19 @@
         <h2>Similar Datasets</h2>
         <div style="width: 100%;">
           <div style="text-align: right; width: 100%; margin: 5px;">
-              <button id="download-datasets-csv">Download Table as CSV</button>
+            <button id="download-datasets-csv">Download Table as CSV</button>
           </div>
           <div id="datasets-table" style="width: 100%; height: 65vh; margin: 5px;"></div>
         </div>
 
         <h2>Similar RUI Locations</h2>
         <div style="text-align: right; width: 100%; margin: 5px;">
-            <button id="download-as-jsonld">Download as JSON-LD</button>
+          <button id="download-as-jsonld">Download as JSON-LD</button>
         </div>
         <div id="eui-container" style="margin-left:-6rem; width: 1080px;"></div>
       </div>
     </div>
   </hra-app-shell>
 </body>
+
 </html>

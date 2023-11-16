@@ -2,6 +2,7 @@ import globalCssString from './hra-app-shell.global.css';
 import cssString from './hra-app-shell.css';
 import templateString from './hra-app-shell.html';
 
+
 const globalStyles = document.createElement('template');
 globalStyles.innerHTML = `<style>${globalCssString}</style>`;
 

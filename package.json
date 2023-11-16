@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "HRA Applications deployed to https://apps.humanatlas.io",
   "workspaces": [
-    "./components", "./applications/*"
+    "./components",
+    "./applications/*"
   ],
   "scripts": {
     "start": "npm-run-all build serve",

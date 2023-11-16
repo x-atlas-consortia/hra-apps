@@ -21,31 +21,38 @@
   <hra-app-shell logo-text="Human Reference Atlas Applications" logo-url="/"
     github-url="https://github.com/x-atlas-consortia/hra-apps/tree/main/applications/us2-cell-to-spatial/#readme">
     <div class="main">
-      <h1>Improve Cell Type Annotation</h1>
+      <h1 class="page-title">Improve Cell Type Annotation</h1>
 
       <div id="settings">
-        <div class="card">
-          <h2>Upload a RUI Location</h2>
-          <p>Upload an existing Registration User Interface (RUI) location JSON-LD file or use the sample file to generate a cell type summary.</p>
-          <p>
-            <span id="upload-status">No file loaded</span><br>
-            <button id="use-sample">Use Sample JSON-LD</button>
+        <div class="card-container">
+          <div class="height-card card">
+            <h3>Upload a RUI Location</h3>
+            <p>Upload an existing Registration User Interface (RUI) location JSON-LD file or use the sample file to
+              generate a cell type summary.</p>
+            <div class="filler"></div>
+            <span style="width: 100%;">
+              <span id="upload-status">No file loaded</span><br>
+              <button id="use-sample" class="light-btn btn">Use Sample JSON-LD</button>
 
-            <span id="upload-file">
-              <label class="button" for="file-input">Upload JSON-LD</label>
-              <input id="file-input" style="display: none;" type="file" accept=".json, .jsonld, .json-ld"> 
+              <span id="upload-file">
+                <label class="btn dark-btn" for="file-input">Upload JSON-LD</label>
+                <input id="file-input" style="display: none;" type="file" accept=".json, .jsonld, .json-ld">
+              </span>
+
+              <div class="btn-uploaded">
+                <button id="remove-file" style="display: none;" class="btn light-btn">Remove JSON-LD</button>
+                <button id="submit-file" style="display: none;" class="btn dark-btn">Generate Summary</button>
+              </div>
             </span>
-            
-            <button id="remove-file" style="display: none;">Remove JSON-LD</button>
-            <button id="submit-file" style="display: none;">Generate Summary</button>
-          </p>
-        </div>
+          </div>
 
-        <div class="card">
-          <h2>Create a New RUI Location</h2>
-          <p>Create a new Registration User Interface (RUI) location by placing a tissue block to generate a cell type summary.</p>
-  
-          <button id="start-rui">Create RUI Location</button>
+          <div class="height-card card">
+            <h3>Create a New RUI Location</h3>
+            <p>Create a new Registration User Interface (RUI) location by placing a tissue block to generate a cell type
+              summary.</p>
+            <div class="filler"></div>
+            <button id="start-rui" class="btn dark-btn">Create RUI Location</button>
+          </div>
         </div>
       </div>
 
@@ -62,7 +69,7 @@
         <h2>Cell Type Summary</h2>
         <div style="width: 100%;">
           <div style="text-align: right; width: 100%; margin: 5px;">
-              <button id="download-csv">Download Table as CSV</button>
+            <button id="download-csv">Download Table as CSV</button>
           </div>
           <div id="table" style="width: 100%; height: 65vh; margin: 5px;"></div>
         </div>
@@ -70,22 +77,28 @@
     </div>
   </hra-app-shell>
 
-  <div id="rui-wrapper" style="display: none; position: absolute; top: 5vh; left: 5vw; width: 90vw; height: 90vh; border: 4px solid black;"></div>
+  <div id="rui-wrapper"
+    style="display: none; position: absolute; top: 5vh; left: 5vw; width: 90vw; height: 90vh; border: 4px solid black;">
+  </div>
 
   <template id="dialog-content">
     <div style="width: 100%;">
       <div style="text-align: right; width: 100%; margin: 5px;">
-          <button id="download-csv">Download Table as CSV</button>
+        <button id="download-csv">Download Table as CSV</button>
       </div>
       <div id="table" style="width: 100%; height: 65vh; margin: 5px;"></div>
     </div>
   </template>
   <template id="error-content">
     <p>
-      We identified no collisions between the tissue block and any anatomical structure with a cell type population as part of the Atlas.
-      Please refer to <a target="_blank" href="https://github.com/cns-iu/hra-cell-type-populations-supporting-information/blob/main/data/reports/table-s2.csv">this table</a>
+      We identified no collisions between the tissue block and any anatomical structure with a cell type population as
+      part of the Atlas.
+      Please refer to <a target="_blank"
+        href="https://github.com/cns-iu/hra-cell-type-populations-supporting-information/blob/main/data/reports/table-s2.csv">this
+        table</a>
       for an overview of anatomical structures for which cell type populations exist in the Atlas.
     </p>
   </template>
 </body>
+
 </html>
