@@ -23,7 +23,7 @@ let csvString;
 let generatedRuiLocations;
 
 window.addEventListener('DOMContentLoaded', async () => {
-  updateOrganDropdownWebComponent();
+  updateOrganDropdown();
 
   const useSample = document.getElementById('use-sample');
   useSample.addEventListener('click', async () => {
@@ -74,14 +74,6 @@ window.addEventListener('DOMContentLoaded', async () => {
 async function updateOrganDropdown() {
   const organs = await getSupportedOrgans();
   const $organs = document.getElementById('organ-input');
-  $organs.innerHTML = organs
-    .map(({ organ_iri, organ_label }) => `<option value="${organ_iri}">${organ_label}</option>`)
-    .join('\n');
-}
-
-async function updateOrganDropdownWebComponent() {
-  const organs = await getSupportedOrgans();
-  const $organs = document.getElementById('organ-input-wc');
   $organs.innerHTML = organs
     .map(({ organ_iri, organ_label }) => `<md-select-option value="${organ_iri}">
     <div slot="headline">${organ_label}</div>
