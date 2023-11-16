@@ -23,28 +23,29 @@
         <div class="card-container">
           <div class="card height-card">
             <h3>1. Upload a Cell Summary in CSV format</h3>
-            <p>Upload a cell summary CSV file to generate 3D spatial origins of tissue samples.The CSV file must have
-              the header (cell_id,percentage).</p>
+            <p>Upload a cell summary CSV file or use the sample file to generate 3D spatial origins of tissue samples. 
+              The CSV file must have the header (cell_id,percentage).</p>
             <div class="filler"></div>
-            <p>
+            <span style="width: 100%;">
               <span id="upload-status">No file loaded</span><br>
-              <button id="use-sample" class="btn light-btn">Use Sample CSV</button>
-
-              <span id="upload-file">
-                <label class="btn dark-btn" for="file-input">Upload CSV</label>
-                <input id="file-input" style="display: none;" type="file" accept=".csv, .tsv">
+              <span class="sample-buttons">
+                <button id="use-sample" class="btn light-btn">Use Sample CSV</button>
+                <span id="upload-file">
+                  <label class="btn dark-btn" for="file-input">Upload CSV</label>
+                  <input id="file-input" style="display: none;" type="file" accept=".csv, .tsv">
+                </span>
               </span>
 
               <button id="remove-file" style="display: none;" class="btn light-btn">Remove CSV</button>
-            </p>
+            </span>
           </div>
           <div class="card">
             <h3>2. Select an organ</h3>
             <p>Select the organ (kidney, skin, heart, etc.) for the uploaded cell summary.</p>
               <md-filled-select id="organ-input">
-                
               </md-filled-select>
-            <div class="filler"></div>
+              <div class="filler"></div>
+            <span id="upload-message">Upload a cell summary CSV to generate predictions.</span>
             <p>
               <button id="submit-file" style="display: none;" class="btn dark-btn">Generate Predictions</button>
             </p>
@@ -54,39 +55,41 @@
 
       <div id="summary" style="display: none;">
         <h2>Predicted Results for Input File and Organ</h2>
-        <div class="card">
-          <h3>Cell Summary Upload:</h3>
-          <p id="uploaded-file"></p>
+        <div class="card-container">
+          <div class="card">
+            <h3>Cell Summary Upload:</h3>
+            <p id="uploaded-file"></p>
+          </div>
+          <div class="card">
+            <h3>Organ Selection:</h3>
+            <p id="organ-selected"></p>
+          </div>
         </div>
-        <div class="card">
-          <h3>Organ Selection:</h3>
-          <p id="organ-selected"></p>
-        </div>
-        <p><button id="start-over">Start Over</button></p>
+        <p><button id="start-over" class="btn light-btn">Start Over</button></p>
       </div>
 
-      <div id="results" style="width: 100%; display: none;">
-        <h2>Predicted Anatomical Structures</h2>
-        <div style="width: 100%;">
-          <div style="text-align: right; width: 100%; margin: 5px;">
-            <button id="download-as-csv">Download Table as CSV</button>
-          </div>
+      <div id="results" class="download-csv" style="width: 100%; display: none;">
+        <div style="width: 100%; margin-bottom: 4rem;">
+          <span class="download-as">
+            <h2>Predicted Anatomical Structures</h2>
+            <button id="download-as-csv" class="btn dark-btn">Download Table as CSV</button>
+          </span>
           <div id="as-table" style="width: 100%; height: 65vh; margin: 5px;"></div>
         </div>
 
-        <h2>Similar Datasets</h2>
-        <div style="width: 100%;">
-          <div style="text-align: right; width: 100%; margin: 5px;">
-            <button id="download-datasets-csv">Download Table as CSV</button>
-          </div>
+        <div style="width: 100%; margin-bottom: 4rem;">
+          <span class="download-as">
+            <h2>Similar Datasets</h2>
+            <button id="download-datasets-csv" class="btn dark-btn">Download Table as CSV</button>
+          </span>
           <div id="datasets-table" style="width: 100%; height: 65vh; margin: 5px;"></div>
         </div>
 
-        <h2>Similar RUI Locations</h2>
-        <div style="text-align: right; width: 100%; margin: 5px;">
-          <button id="download-as-jsonld">Download as JSON-LD</button>
-        </div>
-        <div id="eui-container" style="margin-left:-6rem; width: 1080px;"></div>
+        <span class="download-as">
+            <h2>Similar RUI Locations</h2>
+            <button id="download-as-jsonld" class="btn dark-btn">Download as JSON-LD</button>
+        </span>
+        <div id="eui-container" style="margin-left: -5rem; width: 65.5rem;"></div>
       </div>
     </div>
   </hra-app-shell>

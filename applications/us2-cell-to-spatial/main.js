@@ -21,6 +21,8 @@ async function getSupportedOrgans() {
 
 let csvString;
 let generatedRuiLocations;
+let supportedOrgans = {};
+let selectedOrganIri;
 
 window.addEventListener('DOMContentLoaded', async () => {
   updateOrganDropdown();
@@ -73,6 +75,9 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 async function updateOrganDropdown() {
   const organs = await getSupportedOrgans();
+  organs.map((organ) => {
+    supportedOrgans[organ['organ_iri']] = organ['organ_label'];
+  })
   const $organs = document.getElementById('organ-input');
   $organs.innerHTML = organs
     .map(({ organ_iri, organ_label }) => `<md-select-option value="${organ_iri}">
@@ -81,11 +86,19 @@ async function updateOrganDropdown() {
     .join('\n');
 }
 
+
+const selectElement = document.getElementById('organ-input');
+const selectedOrgan = document.getElementById('organ-selected');
+selectElement.addEventListener('change', (e) => {
+  selectedOrgan.innerText = supportedOrgans[`${e.target.value}`];
+  selectedOrganIri = e.target.value;
+})
+
 function setCsvFile(newCsvString, fileName) {
   csvString = newCsvString ? newCsvString : undefined;
 
   const status = document.getElementById('upload-status');
-  status.innerHTML = newCsvString ? fileName : 'No file loaded';
+  status.innerHTML = newCsvString ? `File loaded: ${fileName}` : 'No file loaded';
 
   const uploadedFile = document.getElementById('uploaded-file');
   uploadedFile.innerHTML = location ? fileName : 'No file loaded';
@@ -101,6 +114,9 @@ function setCsvFile(newCsvString, fileName) {
 
   const uploadFile = document.getElementById('upload-file');
   uploadFile.style.display = !!csvString ? 'none' : 'block';
+
+  const uploadMessage = document.getElementById('upload-message');
+  uploadMessage.style.display = !!csvString ? 'none' : 'block';
 }
 
 let asTable;

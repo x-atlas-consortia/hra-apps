@@ -32,11 +32,13 @@
             <div class="filler"></div>
             <span style="width: 100%;">
               <span id="upload-status">No file loaded</span><br>
-              <button id="use-sample" class="light-btn btn">Use Sample JSON-LD</button>
-
-              <span id="upload-file">
-                <label class="btn dark-btn" for="file-input">Upload JSON-LD</label>
-                <input id="file-input" style="display: none;" type="file" accept=".json, .jsonld, .json-ld">
+              <span class="sample-buttons">
+                <button id="use-sample" class="light-btn btn">Use Sample JSON-LD</button>
+  
+                <span id="upload-file">
+                  <label class="btn dark-btn" for="file-input">Upload JSON-LD</label>
+                  <input id="file-input" style="display: none;" type="file" accept=".json, .jsonld, .json-ld">
+                </span>
               </span>
 
               <div class="btn-uploaded">
@@ -62,29 +64,20 @@
           <h3>Cell Summary Upload:</h3>
           <p id="uploaded-file"></p>
         </div>
-        <p><button id="start-over">Start Over</button></p>
+        <p><button id="start-over" class="btn light-btn">Start Over</button></p>
       </div>
 
-      <div id="results" style="width: 100%; display: none;">
-        <h2>Cell Type Summary</h2>
-        <div style="width: 100%;">
-          <div style="text-align: right; width: 100%; margin: 5px;">
-            <button id="download-csv">Download Table as CSV</button>
-          </div>
-          <div id="table" style="width: 100%; height: 65vh; margin: 5px;"></div>
-        </div>
-      </div>
+      <div id="results" style="width: 100%; display: none;"></div>
     </div>
   </hra-app-shell>
 
-  <div id="rui-wrapper"
-    style="display: none; position: absolute; top: 5vh; left: 5vw; width: 90vw; height: 90vh; border: 4px solid black;">
-  </div>
+  <div id="rui-wrapper" class="rui-wrapper"></div>
 
   <template id="dialog-content">
     <div style="width: 100%;">
-      <div style="text-align: right; width: 100%; margin: 5px;">
-        <button id="download-csv">Download Table as CSV</button>
+      <div class="download-as">
+        <h2>Cell Type Summary</h2>
+          <button id="download-csv" class="btn dark-btn">Download Table as CSV</button>
       </div>
       <div id="table" style="width: 100%; height: 65vh; margin: 5px;"></div>
     </div>
