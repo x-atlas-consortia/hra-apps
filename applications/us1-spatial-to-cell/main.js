@@ -148,3 +148,18 @@ function showCellSummary(cellSummary) {
   }
   results.style.display = 'block';
 }
+
+const menuBtn = document.getElementById('menu-btn');
+const navMenu = document.getElementById('nav-menu');
+const toggleMenu = () => {
+  navMenu.classList.toggle('hide')
+}
+menuBtn.addEventListener('click', toggleMenu)
+
+function closeMenuIfClickedOutside (event) {
+  if (!navMenu.classList.contains('hide') && event.target !== menuBtn) {
+    navMenu.classList.add('hide')
+  }
+}
+
+document.addEventListener('click', closeMenuIfClickedOutside);
