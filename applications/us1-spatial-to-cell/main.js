@@ -156,6 +156,12 @@ const toggleMenu = () => {
 }
 menuBtn.addEventListener('click', toggleMenu)
 
+menuBtn.addEventListener('click', (event) => {
+  if (event.target.tagName === 'IMG') {
+    navMenu.classList.toggle('hide');
+  }
+});
+
 function closeMenuIfClickedOutside (event) {
   if (!navMenu.classList.contains('hide') && event.target !== menuBtn) {
     navMenu.classList.add('hide')
