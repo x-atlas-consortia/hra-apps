@@ -5,7 +5,21 @@
     </div>
     <div style="flex-grow: 1;"></div>
     <div class="menu-content">
-      <slot name="menu"></slot>
+      <!-- <slot name="menu"> -->
+        <div class="menu">
+          <span class="menu-btn" id="menu-btn">
+            Menu
+            <img src="../assets/hamburger_icon.svg">
+          </span>
+          <ul class="nav-menu hide" id="nav-menu">
+            <li><a href="https://www.google.com" target="_blank">Demo App: Improve Cell Type Annotations</a></li>
+            <li><a href="https://www.google.com" target="_blank">Demo App: Predict 3D Spatial Origin of Tissue Samples</a></li>
+            <li><a href="https://www.google.com" target="_blank">Registration User Interface (RUI)</a></li>
+            <li><a href="https://www.google.com" target="_blank">Exploration User Interface (EUI)</a></li>
+            <li><a href="https://www.google.com" target="_blank">Human Reference Atlas Portal</a></li>
+          </ul>
+        </div>
+      <!-- </slot> -->
     </div>
   </div>
 </header>

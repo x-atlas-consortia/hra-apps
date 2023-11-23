@@ -18,84 +18,9 @@
   </style>
 </head>
 <body>
-  <hra-app>
-    <div slot="menu" class="menu">
-      <span class="menu-btn" id="menu-btn">
-        Menu
-        <img src="./assets/hamburger_icon.svg">
-      </span>
-      <ul class="nav-menu hide" id="nav-menu">
-        <li><a href="https://www.google.com" target="_blank">Demo App: Improve Cell Type Annotations</a></li>
-        <li><a href="https://www.google.com" target="_blank">Demo App: Predict 3D Spatial Origin of Tissue Samples</a></li>
-        <li><a href="https://www.google.com" target="_blank">Registration User Interface (RUI)</a></li>
-        <li><a href="https://www.google.com" target="_blank">Exploration User Interface (EUI)</a></li>
-        <li><a href="https://www.google.com" target="_blank">Human Reference Atlas Portal</a></li>
-      </ul>
-    </div>
-    <div class="main">
-      <h1 class="page-title">Improve Cell Type Annotation</h1>
-
-      <div id="settings">
-        <div class="card-container">
-          <div class="height-card card">
-            <h3>Upload a RUI Location</h3>
-            <p>Upload an existing Registration User Interface (RUI) location JSON-LD file or use the sample file to
-              generate a cell type summary.</p>
-            <div class="filler"></div>
-            <span style="width: 100%;">
-              <span id="upload-status">No file loaded</span><br>
-              <span class="sample-buttons">
-                <button id="use-sample" class="light-btn btn">Use Sample JSON-LD</button>
-  
-                <span id="upload-file">
-                  <label class="btn dark-btn" for="file-input">Upload JSON-LD</label>
-                  <input id="file-input" style="display: none;" type="file" accept=".json, .jsonld, .json-ld">
-                </span>
-              </span>
-
-              <div class="btn-uploaded">
-                <button id="remove-file" style="display: none;" class="btn light-btn">Remove JSON-LD</button>
-                <button id="submit-file" style="display: none;" class="btn dark-btn">Generate Summary</button>
-              </div>
-            </span>
-          </div>
-
-          <div class="height-card card">
-            <h3>Create a New RUI Location</h3>
-            <p>Create a new Registration User Interface (RUI) location by placing a tissue block to generate a cell type
-              summary.</p>
-            <div class="filler"></div>
-            <button id="start-rui" class="btn dark-btn">Create RUI Location</button>
-          </div>
-        </div>
-      </div>
-
-      <div id="summary" style="display: none;">
-        <h2>Predicted Results for Input File</h2>
-        <div class="card">
-          <h3>Cell Summary Upload:</h3>
-          <p id="uploaded-file"></p>
-        </div>
-        <p><button id="start-over" class="btn light-btn">Start Over</button></p>
-      </div>
-
-      <div id="results" style="width: 100%; display: none;"></div>
-    </div>
-  </hra-app>
-  <!-- <hra-app-shell logo-text="Human Reference Atlas Applications" logo-url="/"
+  <hra-app-shell logo-text="Human Reference Atlas Applications" logo-url="/"
     github-url="https://github.com/x-atlas-consortia/hra-apps/tree/main/applications/us2-cell-to-spatial/#readme">
     <div slot="menu" class="menu">
-      <span class="menu-btn" id="menu-btn">
-        Menu
-        <img src="./assets/hamburger_icon.svg">
-      </span>
-      <ul class="nav-menu hide" id="nav-menu">
-        <li><a href="https://www.google.com" target="_blank">Demo App: Improve Cell Type Annotations</a></li>
-        <li><a href="https://www.google.com" target="_blank">Demo App: Predict 3D Spatial Origin of Tissue Samples</a></li>
-        <li><a href="https://www.google.com" target="_blank">Registration User Interface (RUI)</a></li>
-        <li><a href="https://www.google.com" target="_blank">Exploration User Interface (EUI)</a></li>
-        <li><a href="https://www.google.com" target="_blank">Human Reference Atlas Portal</a></li>
-      </ul>
     </div>
     <div class="main">
       <h1 class="page-title">Improve Cell Type Annotation</h1>
@@ -146,7 +71,7 @@
 
       <div id="results" style="width: 100%; display: none;"></div>
     </div>
-  </hra-app-shell> -->
+  </hra-app-shell>
 
   <div id="rui-wrapper" class="rui-wrapper"></div>
 

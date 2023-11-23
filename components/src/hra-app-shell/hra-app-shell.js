@@ -26,6 +26,28 @@ class HraAppShell extends HTMLElement {
     root.appendChild(template.content.cloneNode(true));
     this.$logo = root.getElementById('logo');
     this.$github = root.getElementById('github-corner');
+
+    const menuBtn = root.getElementById('menu-btn');
+    const navMenu = root.getElementById('nav-menu');
+    const toggleMenu = () => {
+      navMenu.classList.toggle('hide')
+    }
+
+    menuBtn.addEventListener('click', toggleMenu)
+
+    menuBtn.addEventListener('click', (event) => {
+      if (event.target.tagName === 'IMG') {
+        navMenu.classList.toggle('hide');
+      }
+    });
+
+    function closeMenuIfClickedOutside (event) {
+      if (!navMenu.classList.contains('hide') && event.target !== menuBtn) {
+        navMenu.classList.add('hide')
+      }
+    }
+
+    root.addEventListener('click', closeMenuIfClickedOutside);
   }
 
   connectedCallback() {
