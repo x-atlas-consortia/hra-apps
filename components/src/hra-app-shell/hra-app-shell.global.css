@@ -160,7 +160,7 @@ body {
 
 @media screen and (max-width: 428px) {
   .card {
-    width: unset;
+    width: 100%;
     margin-bottom: 2rem;
   }
 }
@@ -173,12 +173,15 @@ body {
 
 .sample-buttons {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
 }
 
 .download-as {
   display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 2rem;
 }
@@ -187,9 +190,48 @@ body {
   margin: 0;
 }
 
+.predicted-results {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 @media screen and (max-width: 428px) {
   .height-card {
     min-width: unset;
+  }
+
+  .main .page-title {
+    font-size: 1.5rem;
+  }
+
+  .main h2 {
+    font-size: 1.25rem;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.75rem;
+  }
+
+  #upload-status {
+    font-size: 0.75rem;
+  }
+
+  .btn-uploaded {
+    gap: 1rem;
+  }
+
+  .predicted-results {
+    margin-bottom: 2rem;
+  }
+
+  #organ-input {
+    margin-bottom: 1rem;
   }
 }
 

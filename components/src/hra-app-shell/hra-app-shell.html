@@ -2,24 +2,29 @@
   <div class="header-container">
     <div class="main-logo">
       <a id="logo" class="logo">Human Reference Atlas Applications</a>
+      <a id="logo-small" class="logo-small">HRA Applications</a>
     </div>
     <div style="flex-grow: 1;"></div>
     <div class="menu-content">
-      <!-- <slot name="menu"> -->
         <div class="menu">
           <span class="menu-btn" id="menu-btn">
             Menu
-            <img src="../assets/hamburger_icon.svg">
+            <img id="menu-icon">
           </span>
           <ul class="nav-menu hide" id="nav-menu">
-            <li><a href="https://www.google.com" target="_blank">Demo App: Improve Cell Type Annotations</a></li>
-            <li><a href="https://www.google.com" target="_blank">Demo App: Predict 3D Spatial Origin of Tissue Samples</a></li>
-            <li><a href="https://www.google.com" target="_blank">Registration User Interface (RUI)</a></li>
-            <li><a href="https://www.google.com" target="_blank">Exploration User Interface (EUI)</a></li>
-            <li><a href="https://www.google.com" target="_blank">Human Reference Atlas Portal</a></li>
+            <li><a href="/us1/">Demo App: Improve Cell Type Annotations</a></li>
+            <li><a href="/us2/">Demo App: Predict 3D Spatial Origin of Tissue Samples</a></li>
+            <li><a href="/rui/" target="_blank" class="external-url">Registration User Interface (RUI) 
+              <img id="rui-menu-icon" />
+            </a></li>
+            <li><a href="/eui/" target="_blank" class="external-url">Exploration User Interface (EUI) 
+              <img id="eui-menu-icon" />
+            </a></li>
+            <li><a href="https://humanatlas.io/" target="_blank" class="external-url">Human Reference Atlas Portal 
+              <img id="hra-menu-icon" />
+            </a></li>
           </ul>
         </div>
-      <!-- </slot> -->
     </div>
   </div>
 </header>

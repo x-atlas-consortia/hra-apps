@@ -6,12 +6,13 @@
   margin-right: 0;
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
-  background-color: rgba(255,255,255,1);
+  background-color: rgba(255, 255, 255, 1);
   line-height: 1.5rem;
   color: rgba(33, 33, 33, 1);
 }
 
-.main-header, .main-footer {
+.main-header,
+.main-footer {
   box-sizing: border-box;
 }
 
@@ -34,7 +35,7 @@
   line-height: 0;
 }
 
-.main-header .main-logo .logo {
+.main-header .main-logo .logo, .logo-small {
   margin-left: 1rem;
   height: 24px;
   color: rgba(230, 233, 245, 1);
@@ -63,7 +64,7 @@
 }
 
 .menu-content {
-  margin-right: 5rem;
+  margin-right: 1rem;
 }
 
 .menu {
@@ -113,9 +114,48 @@
   display: none;
 }
 
+.logo-small {
+  display: none;
+}
+
+.external-url {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.github-corner {
+  display: none !important;
+}
+
+@media screen and (max-width: 428px) {
+  .logo {
+    display: none;
+  }
+  
+  .logo-small {
+    display: flex;
+    font-size: medium;
+    align-items: center;
+    line-height: 1rem;
+  }
+}
+
+@media screen and (max-width: 256px) {
+  .main-header .main-logo .logo, .menu-btn, .logo-small {
+    font-size: small;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .nav-menu {
-    width: calc(100vw - 8rem);
+    width: calc(100vw - 2rem);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-header .main-logo .logo {
+    font-size: medium;
+    line-height: 1rem;
   }
 }
 
@@ -138,6 +178,10 @@
 
   .menu-content {
     margin-right: none;
+  }
+
+  .github-corner {
+    display: block !important;
   }
 }
 
