@@ -18,7 +18,7 @@
   </style>
 </head>
 <body>
-  <hra-app-shell logo-text="Human Reference Atlas Applications" logo-url="/"
+  <hra-app-shell logo-text="Human Reference Atlas Applications" logo-text-small="HRA Applications" logo-url="/"
     github-url="https://github.com/x-atlas-consortia/hra-apps/tree/main/applications/us2-cell-to-spatial/#readme">
     <div class="main">
       <h1 class="page-title">Improve Cell Type Annotation</h1>
@@ -59,12 +59,14 @@
       </div>
 
       <div id="summary" style="display: none;">
-        <h2>Predicted Results for Input File</h2>
+        <div class="predicted-results">
+          <h2>Predicted Results for Input File</h2>
+          <button id="start-over" class="btn light-btn">Start Over</button>
+        </div>
         <div class="card">
           <h3>Cell Summary Upload:</h3>
           <p id="uploaded-file"></p>
         </div>
-        <p><button id="start-over" class="btn light-btn">Start Over</button></p>
       </div>
 
       <div id="results" style="width: 100%; display: none;"></div>

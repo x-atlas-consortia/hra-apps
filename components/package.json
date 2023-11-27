@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm-run-all build:public build:app",
     "build:public": "mkdir -p ../dist/components/ && rsync -ru --delete public/ ../dist/components/",
-    "build:app": "npx esbuild src/hra-app-shell/hra-app-shell.js --bundle --minify --line-limit=120 --sourcemap=linked --loader:.html=text --loader:.css=text --outfile=../dist/components/hra-app-shell.wc.js"
+    "build:app": "npx esbuild src/hra-app-shell/hra-app-shell.js --bundle --minify --line-limit=120 --sourcemap=linked --loader:.html=text --loader:.css=text --loader:.svg=dataurl --outfile=../dist/components/hra-app-shell.wc.js"
   },
   "author": "",
   "license": "MIT",
