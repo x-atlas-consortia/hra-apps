@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         updateDatasetsTable(sources);
         updateEui(rui_locations);
       } else {
-        alert('Bad Data');
+        alert('No predictions found.');
       }
     }
   });
