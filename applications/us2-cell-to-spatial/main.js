@@ -2,21 +2,26 @@ import { saveAs } from 'file-saver';
 import { TabulatorFull } from 'tabulator-tables';
 import sample from './heart-cell-summary.csv';
 
-import '@material/web/select/select-option.js';
 import '@material/web/select/filled-select.js';
+import '@material/web/select/select-option.js';
 
-async function getSimilarHraItems(csvString) {
-  return fetch('https://apps.humanatlas.io/api/ctpop/cell-summary-report', {
+const ENDPOINT = 'https://apps.humanatlas.io/api/ctpop';
+
+async function getSimilarHraItems(csvString, organIri) {
+  return fetch(`${ENDPOINT}/cell-summary-report`, {
     method: 'POST',
-    body: csvString,
+    body: JSON.stringify({
+      organ: organIri,
+      csvString,
+    }),
     headers: {
-      'Content-Type': 'text/csv',
+      'Content-Type': 'application/json',
     },
   }).then((r) => r.json());
 }
 
 async function getSupportedOrgans() {
-  return fetch('https://apps.humanatlas.io/api/ctpop/supported-organs').then((r) => r.json());
+  return fetch(`${ENDPOINT}/supported-organs`).then((r) => r.json());
 }
 
 let csvString;
@@ -36,7 +41,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   submitBtn.addEventListener('click', async () => {
     clearResults();
     if (csvString) {
-      const { sources, rui_locations } = await getSimilarHraItems(csvString);
+      const { sources, rui_locations } = await getSimilarHraItems(csvString, selectedOrganIri);
 
       if (sources?.length > 0) {
         results.style.display = 'block';
@@ -76,23 +81,24 @@ window.addEventListener('DOMContentLoaded', async () => {
 async function updateOrganDropdown() {
   const organs = await getSupportedOrgans();
   organs.map((organ) => {
-    supportedOrgans[organ['organ_iri']] = organ['organ_label'];
-  })
+    supportedOrgans[organ['id']] = organ['label'];
+  });
   const $organs = document.getElementById('organ-input');
   $organs.innerHTML = organs
-    .map(({ organ_iri, organ_label }) => `<md-select-option value="${organ_iri}">
-    <div slot="headline">${organ_label}</div>
-    </md-select-option>`)
+    .map(
+      ({ id, label }) => `<md-select-option value="${id}">
+    <div slot="headline">${label}</div>
+    </md-select-option>`
+    )
     .join('\n');
 }
-
 
 const selectElement = document.getElementById('organ-input');
 const selectedOrgan = document.getElementById('organ-selected');
 selectElement.addEventListener('change', (e) => {
   selectedOrgan.innerText = supportedOrgans[`${e.target.value}`];
   selectedOrganIri = e.target.value;
-})
+});
 
 function setCsvFile(newCsvString, fileName) {
   csvString = newCsvString ? newCsvString : undefined;

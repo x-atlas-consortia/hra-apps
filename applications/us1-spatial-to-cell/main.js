@@ -1,8 +1,10 @@
 import { TabulatorFull } from 'tabulator-tables';
 import sample from './registration-data.json';
 
+const ENDPOINT = 'https://apps.humanatlas.io/api/ctpop';
+
 async function getCellSummary(ruiLocation) {
-  return fetch('https://apps.humanatlas.io/api/ctpop/rui-location-cell-summary', {
+  return fetch(`${ENDPOINT}/rui-location-cell-summary`, {
     method: 'POST',
     body: ruiLocation,
     headers: {
@@ -11,8 +13,8 @@ async function getCellSummary(ruiLocation) {
   }).then((r) => r.json());
 }
 
-async function getSupportedOrgans() {
-  return fetch('https://apps.humanatlas.io/api/ctpop/supported-organs').then((r) => r.json());
+async function getSupportedReferenceOrgans() {
+  return fetch(`${ENDPOINT}/supported-reference-organs`).then((r) => r.json());
 }
 
 let tabulator;
@@ -61,7 +63,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     setRUILocation(undefined);
   });
 
-  supportedOrgans = await getSupportedOrgans();
+  supportedOrgans = await getSupportedReferenceOrgans();
 });
 
 function setRUILocation(location, fileName) {
@@ -104,7 +106,7 @@ function showRUI() {
     rui.cancelRegistration = () => {
       content.style.display = 'none';
     };
-    rui.organOptions = supportedOrgans.map(o => o.organ_iri);
+    rui.organOptions = supportedOrgans.map(o => o.id);
 
     content.appendChild(rui);
   }
