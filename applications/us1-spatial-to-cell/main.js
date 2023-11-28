@@ -11,9 +11,14 @@ async function getCellSummary(ruiLocation) {
   }).then((r) => r.json());
 }
 
+async function getSupportedOrgans() {
+  return fetch('https://apps.humanatlas.io/api/ctpop/supported-organs').then((r) => r.json());
+}
+
 let tabulator;
 let ruiLocation;
 let rui;
+let supportedOrgans = [];
 
 window.addEventListener('DOMContentLoaded', async () => {
   const useSample = document.getElementById('use-sample');
@@ -55,6 +60,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     clearResults();
     setRUILocation(undefined);
   });
+
+  supportedOrgans = await getSupportedOrgans();
 });
 
 function setRUILocation(location, fileName) {
@@ -97,6 +104,8 @@ function showRUI() {
     rui.cancelRegistration = () => {
       content.style.display = 'none';
     };
+    rui.organOptions = supportedOrgans.map(o => o.organ_iri);
+
     content.appendChild(rui);
   }
 
