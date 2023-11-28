@@ -1,7 +1,19 @@
 import { TabulatorFull } from 'tabulator-tables';
 import sample from './registration-data.json';
 
-const ENDPOINT = 'https://apps.humanatlas.io/api/ctpop';
+const ENDPOINT = 'https://apps.humanatlas.io/api/hra-pop';
+
+const TABLE_COLUMNS = [
+  { title: 'Modality', field: 'modality' },
+  { title: '% of Total', field: 'percentage' },
+  { title: 'Cell Count', field: 'count' },
+  { title: 'Cell Label', field: 'cell_label' },
+  { title: 'Cell ID', field: 'cell_id' },
+].map((c) => ({
+  ...c,
+  titleDownload: c.field,
+  download: true,
+}));
 
 async function getCellSummary(ruiLocation) {
   return fetch(`${ENDPOINT}/rui-location-cell-summary`, {
@@ -73,7 +85,7 @@ function setRUILocation(location, fileName) {
     location = JSON.stringify(location);
   }
   ruiLocation = location;
-  
+
   const status = document.getElementById('upload-status');
   status.innerHTML = location ? `File loaded: ${fileName}` : 'No file loaded';
 
@@ -106,7 +118,7 @@ function showRUI() {
     rui.cancelRegistration = () => {
       content.style.display = 'none';
     };
-    rui.organOptions = supportedOrgans.map(o => o.id);
+    rui.organOptions = supportedOrgans.map((o) => o.id);
 
     content.appendChild(rui);
   }
@@ -148,8 +160,13 @@ function showCellSummary(cellSummary) {
     }
     tabulator = new TabulatorFull(content.getElementById('table'), {
       data: cellSummary,
-      autoColumns: true,
+      layout: 'fitDataFill',
+      columns: TABLE_COLUMNS,
     });
+    // tabulator.on('rowClick', function (_e, row) {
+    //   const url = row.getData().cell_id;
+    //   window.open(url, '_blank');
+    // });
 
     // Setup CSV download button
     const button = content.getElementById('download-csv');

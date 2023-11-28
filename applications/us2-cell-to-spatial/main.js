@@ -5,7 +5,7 @@ import sample from './heart-cell-summary.csv';
 import '@material/web/select/filled-select.js';
 import '@material/web/select/select-option.js';
 
-const ENDPOINT = 'https://apps.humanatlas.io/api/ctpop';
+const ENDPOINT = 'https://apps.humanatlas.io/api/hra-pop';
 
 async function getSimilarHraItems(csvString, organIri) {
   return fetch(`${ENDPOINT}/cell-summary-report`, {
@@ -23,6 +23,17 @@ async function getSimilarHraItems(csvString, organIri) {
 async function getSupportedOrgans() {
   return fetch(`${ENDPOINT}/supported-organs`).then((r) => r.json());
 }
+
+const TABLE_COLUMNS = [
+  { title: 'Modality', field: 'modality' },
+  { title: 'Similarity', field: 'similarity' },
+  { title: 'Label', field: 'cell_source_label' },
+  { title: 'ID', field: 'cell_source' },
+].map((c) => ({
+  ...c,
+  titleDownload: c.field,
+  download: true,
+}));
 
 let csvString;
 let generatedRuiLocations;
@@ -133,18 +144,21 @@ function updateAsTable(sources) {
   if (asTable) {
     asTable.destroy();
   }
+  const data = sources.filter((row) => row.cell_source_type === 'http://purl.org/ccf/AnatomicalStructure');
   asTable = new TabulatorFull(document.getElementById('as-table'), {
-    data: sources.filter(
-      (row) =>
-        !row.cell_source.startsWith('https://purl.humanatlas.io/graph/ctpop') &&
-        !row.cell_source.startsWith('http://purl.org/ccf/1.5/')
-    ),
-    autoColumns: true,
+    data,
+    layout: 'fitDataFill',
+    columns: TABLE_COLUMNS,
     initialSort: [
       { column: 'modality', dir: 'asc' },
       { column: 'similarity', dir: 'desc' },
     ],
   });
+  asTable.on('rowClick', function (_e, row) {
+    const url = row.getData().cell_source;
+    window.open(url, '_blank');
+  });
+
   const button = document.getElementById('download-as-csv');
   button.addEventListener('click', () => asTable.download('csv', 'predicted-as.csv'));
 }
@@ -154,14 +168,20 @@ function updateDatasetsTable(sources) {
   if (datasetTable) {
     datasetTable.destroy();
   }
+  const data = sources.filter((row) => row.cell_source_type === 'http://purl.org/ccf/Dataset');
   datasetTable = new TabulatorFull(document.getElementById('datasets-table'), {
-    data: sources.filter((row) => row.cell_source.startsWith('https://purl.humanatlas.io/graph/ctpop')),
-    autoColumns: true,
+    data,
+    layout: 'fitDataFill',
+    columns: TABLE_COLUMNS,
     initialSort: [
       { column: 'modality', dir: 'asc' },
       { column: 'similarity', dir: 'desc' },
     ],
   });
+  // datasetTable.on('rowClick', function (_e, row) {
+  //   const url = row.getData().cell_source;
+  //   window.open(url, '_blank');
+  // });
   const button2 = document.getElementById('download-datasets-csv');
   button2.addEventListener('click', () => datasetTable.download('csv', 'similar-atlas-datasets.csv'));
 }
