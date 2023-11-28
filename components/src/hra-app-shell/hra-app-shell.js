@@ -21,6 +21,7 @@ class HraAppShell extends HTMLElement {
   $logo;
   $github;
   $logoSmall;
+  $menuContent;
 
   constructor() {
     super();
@@ -29,9 +30,7 @@ class HraAppShell extends HTMLElement {
     this.$logo = root.getElementById('logo');
     this.$logoSmall = root.getElementById('logo-small');
     this.$github = root.getElementById('github-corner');
-
-    const menuContainer = root.querySelector('.menu-content')
-    // menuContainer.style.display = 'none';
+    this.$menuContent = root.getElementById('menu-content');
 
     const menuBtn = root.getElementById('menu-btn');
     const navMenu = root.getElementById('nav-menu');
@@ -65,6 +64,21 @@ class HraAppShell extends HTMLElement {
     this.logoTextSmall = this.getAttribute('logo-text-small') || this.getAttribute('logo-text') || 'HRA';
     this.logoUrl = this.getAttribute('logo-url');
     this.githubUrl = this.getAttribute('github-url');
+    this.hideMenu = this.hasAttribute('hide-menu');
+  }
+
+  get hideMenu() {
+    return this.hasAttribute('hide-menu');
+  }
+
+  set hideMenu(value) {
+    if (value) {
+      this.setAttribute('hide-menu', '');
+      this.$menuContent.style.display = 'none';
+    } else {
+      this.removeAttribute('hide-menu');
+      this.$menuContent.style.display = 'block';
+    }
   }
 
   get githubUrl() {
