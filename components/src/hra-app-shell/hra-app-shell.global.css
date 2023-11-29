@@ -158,6 +158,19 @@ body {
   height: 100vh; 
 }
 
+.external-before {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.external-before::before {
+  content: url('OPEN_IN_NEW_ICON');
+  height: 1.25rem;
+  width: 1.25rem;
+  filter: invert(93%) sepia(93%) saturate(2%) hue-rotate(55deg) brightness(104%) contrast(100%);
+}
+
 @media screen and (max-width: 428px) {
   .card {
     width: 100%;
