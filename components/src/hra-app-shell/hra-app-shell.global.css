@@ -158,13 +158,13 @@ body {
   height: 100vh; 
 }
 
-.external {
+.external-before {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.external::before {
+.external-before::before {
   content: url('OPEN_IN_NEW_ICON');
   height: 1.25rem;
   width: 1.25rem;
