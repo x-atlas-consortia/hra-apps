@@ -26,7 +26,7 @@ async function getSupportedOrgans() {
 
 const TABLE_COLUMNS = [
   { title: 'Modality', field: 'modality' },
-  { title: 'Similarity', field: 'similarity' },
+  { title: 'Similarity', field: 'similarity', formatter: 'money', formatterParams: { symbol: '' } },
   { title: 'Label', field: 'cell_source_label' },
   { title: 'ID', field: 'cell_source' },
 ].map((c) => ({

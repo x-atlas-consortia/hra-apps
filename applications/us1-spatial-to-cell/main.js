@@ -5,9 +5,13 @@ const ENDPOINT = 'https://apps.humanatlas.io/api/hra-pop';
 
 const TABLE_COLUMNS = [
   { title: 'Modality', field: 'modality' },
-  { title: '% of Total', field: 'percentage' },
-  { title: 'Cell Count', field: 'count' },
-  { title: 'Cell Label', field: 'cell_label' },
+  {
+    title: '% of Total',
+    field: 'percentage',
+    formatter: (cell) => `${(Number(cell.getValue().toString()) * 100).toPrecision(2)}%`,
+  },
+  { title: '# Cells', field: 'count', formatter: 'money', formatterParams: { symbol: '', precision: 0 } },
+  { title: 'Cell', field: 'cell_label' },
   { title: 'Cell ID', field: 'cell_id' },
 ].map((c) => ({
   ...c,
