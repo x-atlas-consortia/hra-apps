@@ -127,6 +127,13 @@
   display: none !important;
 }
 
+.external::after {
+  content: url('OPEN_IN_NEW_ICON');
+  height: 1rem;
+  width: 1rem;
+  filter: invert(0%) sepia(0%) saturate(103%) hue-rotate(322deg) brightness(115%) contrast(74%);
+}
+
 @media screen and (max-width: 428px) {
   .logo {
     display: none;

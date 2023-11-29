@@ -5,10 +5,10 @@ import menuIconString from '../assets/hamburger_icon.svg';
 import openInNew from '../assets/open_in_new.svg'
 
 const globalStyles = document.createElement('template');
-globalStyles.innerHTML = `<style>${globalCssString}</style>`;
+globalStyles.innerHTML = `<style>${globalCssString.replaceAll('OPEN_IN_NEW_ICON', openInNew)}</style>`;
 
 const template = document.createElement('template');
-template.innerHTML = `${templateString}<style>${cssString}</style>`;
+template.innerHTML = `${templateString}<style>${cssString.replaceAll('OPEN_IN_NEW_ICON', openInNew)}</style>`;
 
 // Apply styles globally (normally not good for web components, but necessary for a full app shell)
 document.addEventListener('DOMContentLoaded', async () => {
@@ -35,22 +35,16 @@ class HraAppShell extends HTMLElement {
     const menuBtn = root.getElementById('menu-btn');
     const navMenu = root.getElementById('nav-menu');
     const menuIcon = root.getElementById('menu-icon');
-    const ruiMenuIcon = root.getElementById('rui-menu-icon');
-    const euiMenuIcon = root.getElementById('eui-menu-icon');
-    const hraMenuIcon = root.getElementById('hra-menu-icon');
-    ruiMenuIcon.setAttribute('src', openInNew);
-    euiMenuIcon.setAttribute('src', openInNew);
-    hraMenuIcon.setAttribute('src', openInNew);
     menuIcon.setAttribute('src', menuIconString);
 
     const toggleMenu = (event) => {
       event.stopPropagation();
-      navMenu.classList.toggle('hide'); 
+      navMenu.classList.toggle('hide');
     }
 
     menuBtn.addEventListener('click', toggleMenu);
 
-    function closeMenuIfClickedOutside (event) {
+    function closeMenuIfClickedOutside(event) {
       if (!navMenu.classList.contains('hide')) {
         navMenu.classList.add('hide')
       }
@@ -125,7 +119,7 @@ class HraAppShell extends HTMLElement {
     } else {
       this.$logo.removeAttribute('href');
     }
-    this.$logo.style.cursor = str ? 'pointer': 'default';
+    this.$logo.style.cursor = str ? 'pointer' : 'default';
     if (str !== this.logoUrl) {
       this.setAttribute('logo-url', str);
     }
