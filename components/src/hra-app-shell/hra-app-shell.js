@@ -80,7 +80,7 @@ class HraAppShell extends HTMLElement {
   }
 
   set githubUrl(url) {
-    this.$github.style.display = url ? 'block' : 'none';
+    this.$github.style.display = url?.trim().length > 0 ? 'block' : 'none';
     this.$github.href = url;
     if (url !== this.githubUrl) {
       this.setAttribute('github-url', url);

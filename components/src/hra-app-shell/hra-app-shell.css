@@ -124,10 +124,6 @@
   gap: 0.5rem;
 }
 
-.github-corner {
-  display: none !important;
-}
-
 .external::after {
   content: url('OPEN_IN_NEW_ICON');
   height: 1rem;
@@ -175,6 +171,12 @@
   }
 }
 
+@media screen and (max-width: 960px) {
+  .github-corner {
+    display: none !important;
+  }
+}
+
 @media screen and (min-width: 960px) {
   .main-content {
     padding: 5rem;
@@ -186,10 +188,6 @@
 
   .menu-content {
     margin-right: none;
-  }
-
-  .github-corner {
-    display: block !important;
   }
 }
 
