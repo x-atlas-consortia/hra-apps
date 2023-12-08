@@ -7,10 +7,11 @@ import '@material/web/select/select-option.js';
 
 const ENDPOINT = 'https://apps.humanatlas.io/api/hra-pop';
 
-async function getSimilarHraItems(csvString, organIri) {
+async function getSimilarHraItems(csvString, organIri, tool) {
   return fetch(`${ENDPOINT}/cell-summary-report`, {
     method: 'POST',
     body: JSON.stringify({
+      tool,
       organ: organIri,
       csvString,
     }),
@@ -24,7 +25,12 @@ async function getSupportedOrgans() {
   return fetch(`${ENDPOINT}/supported-organs`).then((r) => r.json());
 }
 
+async function getSupportedTools() {
+  return fetch(`${ENDPOINT}/supported-tools`).then((r) => r.json());
+}
+
 const TABLE_COLUMNS = [
+  { title: 'Tool', field: 'tool' },
   { title: 'Modality', field: 'modality' },
   { title: 'Similarity', field: 'similarity', formatter: 'money', formatterParams: { symbol: '' } },
   { title: 'Label', field: 'cell_source_label' },
@@ -38,10 +44,13 @@ const TABLE_COLUMNS = [
 let csvString;
 let generatedRuiLocations;
 let supportedOrgans = {};
+let supportedTools = {};
 let selectedOrganIri;
+let selectedToolIri;
 
 window.addEventListener('DOMContentLoaded', async () => {
   updateOrganDropdown();
+  updateToolDropdown();
 
   const useSample = document.getElementById('use-sample');
   useSample.addEventListener('click', async () => {
@@ -52,7 +61,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   submitBtn.addEventListener('click', async () => {
     clearResults();
     if (csvString) {
-      const { sources, rui_locations } = await getSimilarHraItems(csvString, selectedOrganIri);
+      const { sources, rui_locations } = await getSimilarHraItems(csvString, selectedOrganIri, selectedToolIri);
 
       if (sources?.length > 0) {
         results.style.display = 'block';
@@ -104,11 +113,33 @@ async function updateOrganDropdown() {
     .join('\n');
 }
 
+async function updateToolDropdown() {
+  const tools = await getSupportedTools();
+  tools.map((tool) => {
+    supportedTools[tool['id']] = tool['label'];
+  });
+  const $organs = document.getElementById('tool-input');
+  $organs.innerHTML = tools
+    .map(
+      ({ id, label }) => `<md-select-option value="${id}">
+    <div slot="headline">${label}</div>
+    </md-select-option>`
+    )
+    .join('\n');
+}
+
 const selectElement = document.getElementById('organ-input');
 const selectedOrgan = document.getElementById('organ-selected');
 selectElement.addEventListener('change', (e) => {
   selectedOrgan.innerText = supportedOrgans[`${e.target.value}`];
   selectedOrganIri = e.target.value;
+});
+
+const selectToolElement = document.getElementById('tool-input');
+const selectedTool = document.getElementById('tool-selected');
+selectToolElement.addEventListener('change', (e) => {
+  selectedTool.innerText = supportedOrgans[`${e.target.value}`];
+  selectedToolIri = e.target.value;
 });
 
 function setCsvFile(newCsvString, fileName) {

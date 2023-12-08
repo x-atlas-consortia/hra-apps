@@ -4,6 +4,7 @@ import sample from './registration-data.json';
 const ENDPOINT = 'https://apps.humanatlas.io/api/hra-pop';
 
 const TABLE_COLUMNS = [
+  { title: 'Tool', field: 'tool' },
   { title: 'Modality', field: 'modality' },
   {
     title: '% of Total',

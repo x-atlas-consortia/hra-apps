@@ -42,9 +42,15 @@
           <div class="card">
             <h3>2. Select an organ</h3>
             <p>Select the organ (kidney, skin, heart, etc.) for the uploaded cell summary.</p>
-              <md-filled-select id="organ-input">
-              </md-filled-select>
-              <div class="filler"></div>
+            <md-filled-select id="organ-input">
+            </md-filled-select>
+
+            <h3>3. Select an annotation tool</h3>
+            <p>Select the tool (azimuth, celltypist, popv, etc.) for the uploaded cell summary.</p>
+            <md-filled-select id="tool-input">
+            </md-filled-select>
+
+            <div class="filler"></div>
             <span id="upload-message">Upload a cell summary CSV to generate predictions.</span>
             <p>
               <button id="submit-file" style="display: none;" class="btn dark-btn">Generate Predictions</button>
@@ -66,6 +72,10 @@
           <div class="card">
             <h3>Organ Selection:</h3>
             <p id="organ-selected"></p>
+          </div>
+          <div class="card">
+            <h3>Organ Selection:</h3>
+            <p id="tool-selected"></p>
           </div>
         </div>
       </div>
