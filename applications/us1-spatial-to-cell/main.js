@@ -168,7 +168,6 @@ function showCellSummary(cellSummary) {
       layout: 'fitDataFill',
       columns: TABLE_COLUMNS,
       initialSort: [
-        { column: 'modality', dir: 'asc' },
         { column: 'tool', dir: 'asc' },
         { column: 'count', dir: 'desc' },
       ],

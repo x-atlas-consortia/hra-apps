@@ -181,7 +181,6 @@ function updateAsTable(sources) {
     layout: 'fitDataFill',
     columns: TABLE_COLUMNS,
     initialSort: [
-      { column: 'modality', dir: 'asc' },
       { column: 'tool', dir: 'asc' }, 
       { column: 'similarity', dir: 'desc' },
     ],
@@ -206,7 +205,6 @@ function updateDatasetsTable(sources) {
     layout: 'fitDataFill',
     columns: TABLE_COLUMNS,
     initialSort: [
-      { column: 'modality', dir: 'asc' },
       { column: 'tool', dir: 'asc' },
       { column: 'similarity', dir: 'desc' },
     ],
