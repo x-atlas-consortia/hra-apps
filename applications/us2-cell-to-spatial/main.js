@@ -138,7 +138,7 @@ selectElement.addEventListener('change', (e) => {
 const selectToolElement = document.getElementById('tool-input');
 const selectedTool = document.getElementById('tool-selected');
 selectToolElement.addEventListener('change', (e) => {
-  selectedTool.innerText = supportedOrgans[`${e.target.value}`];
+  selectedTool.innerText = supportedTools[`${e.target.value}`];
   selectedToolIri = e.target.value;
 });
 
@@ -182,6 +182,7 @@ function updateAsTable(sources) {
     columns: TABLE_COLUMNS,
     initialSort: [
       { column: 'modality', dir: 'asc' },
+      { column: 'tool', dir: 'asc' }, 
       { column: 'similarity', dir: 'desc' },
     ],
   });
@@ -206,6 +207,7 @@ function updateDatasetsTable(sources) {
     columns: TABLE_COLUMNS,
     initialSort: [
       { column: 'modality', dir: 'asc' },
+      { column: 'tool', dir: 'asc' },
       { column: 'similarity', dir: 'desc' },
     ],
   });

@@ -167,6 +167,11 @@ function showCellSummary(cellSummary) {
       data: cellSummary,
       layout: 'fitDataFill',
       columns: TABLE_COLUMNS,
+      initialSort: [
+        { column: 'modality', dir: 'asc' },
+        { column: 'tool', dir: 'asc' },
+        { column: 'count', dir: 'desc' },
+      ],
     });
     // tabulator.on('rowClick', function (_e, row) {
     //   const url = row.getData().cell_id;
