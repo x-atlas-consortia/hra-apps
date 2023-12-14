@@ -1,0 +1,12 @@
+{
+  "name": "ftu-explorer",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "mkdir -p ../../dist/ftu-explorer/ && rsync -ru public/ ../../dist/ftu-explorer/"
+  },
+  "author": "",
+  "license": "MIT"
+}
