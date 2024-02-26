@@ -113,11 +113,21 @@ async function updateOrganDropdown() {
     .join('\n');
 }
 
+const TOOL_LABELS = {
+  azimuth: 'Azimuth',
+  celltypist: 'CellTypist',
+  popv: 'popV'
+};
+
 async function updateToolDropdown() {
   const tools = await getSupportedTools();
-  tools.map((tool) => {
-    supportedTools[tool['id']] = tool['label'];
-  });
+
+  for (const tool of tools) {
+    const label = TOOL_LABELS[tool['label']] ?? tool['label'];
+    supportedTools[tool['id']] = label;
+    tool['label'] = label;
+  }
+
   const $organs = document.getElementById('tool-input');
   $organs.innerHTML = tools
     .map(
