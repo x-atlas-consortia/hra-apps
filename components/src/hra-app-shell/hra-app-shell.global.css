@@ -141,7 +141,9 @@ body {
   padding: 20px 0 20px 32px;
 }
 
-#uploaded-file, #organ-selected, #tool-selected {
+#uploaded-file,
+#organ-selected,
+#tool-selected {
   margin: 0;
 }
 
@@ -159,11 +161,11 @@ body {
 }
 
 .rui-wrapper {
-  display: none; 
-  position: absolute; 
+  display: none;
+  position: absolute;
   top: 0px;
-  width: 100vw; 
-  height: 100vh; 
+  width: 100vw;
+  height: 100vh;
 }
 
 .external-before {
@@ -277,4 +279,58 @@ md-filled-select::part(menu) {
 
 .download-csv h2 {
   margin: 0;
+}
+
+body.overlay-open {
+  overflow: hidden;
+}
+
+.eui-image {
+  display: block;
+  margin: auto;
+}
+
+.eui-wrapper {
+  display: none;
+  position: fixed;
+  inset: 0;
+}
+
+.eui-container {
+  height: calc(100% - 4.5rem);
+}
+
+body.overlay-open .eui-wrapper {
+  display: block;
+}
+
+.eui-toolbar {
+  width: 100%;
+  background-color: #444c65;
+  color: white;
+}
+
+.back-button {
+  display: flex;
+  gap: 1rem;
+  padding: 24px 0 24px 24px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: max-content;
+}
+
+.back-button img {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.explore-locations {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+}
+
+.explore-locations h3 {
+  margin: 0;
+  line-height: 2rem;
 }

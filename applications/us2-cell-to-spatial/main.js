@@ -57,6 +57,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     setCsvFile(sample, 'heart-cell-summary.csv');
   });
 
+  const eui_image = document.getElementById('eui-image');
+  const explore_location_btn = document.getElementById('explore-locations');
   const submitBtn = document.getElementById('submit-file');
   submitBtn.addEventListener('click', async () => {
     clearResults();
@@ -67,7 +69,9 @@ window.addEventListener('DOMContentLoaded', async () => {
         results.style.display = 'block';
         updateAsTable(sources);
         updateDatasetsTable(sources);
-        updateEui(rui_locations);
+        viewSummaryAndHideSettings();
+        eui_image.addEventListener('click', () => updateEui(rui_locations));
+        explore_location_btn.addEventListener('click', () => updateEui(rui_locations));
       } else {
         alert('No predictions found.');
       }
@@ -191,7 +195,7 @@ function updateAsTable(sources) {
     layout: 'fitDataFill',
     columns: TABLE_COLUMNS,
     initialSort: [
-      { column: 'tool', dir: 'asc' }, 
+      { column: 'tool', dir: 'asc' },
       { column: 'similarity', dir: 'desc' },
     ],
   });
@@ -237,11 +241,26 @@ function clearResults() {
   settings.style.display = 'block';
 }
 
-function updateEui(rui_locations) {
+function viewSummaryAndHideSettings() {
   const summary = document.getElementById('summary');
-  summary.style.display = 'block';
   const settings = document.getElementById('settings');
+  summary.style.display = 'block';
   settings.style.display = 'none';
+}
+
+const body = document.getElementsByTagName('body')[0];
+const euiWrapper = document.getElementById('eui-wrapper');
+const backBtn = document.getElementById('back-button');
+backBtn.addEventListener('click', clickBackButton);
+
+function clickBackButton() {
+  body.classList.remove('overlay-open');
+  euiWrapper.classList.remove('overlay-open');
+}
+
+function updateEui(rui_locations) {
+  body.classList.add('overlay-open');
+  euiWrapper.classList.add('overlay-open');
 
   // Construct EUI
   let eui = document.getElementsByTagName('ccf-eui')[0];
@@ -251,6 +270,7 @@ function updateEui(rui_locations) {
     eui.setAttribute('use-remote-api', 'false');
     eui.setAttribute('hubmap-data-url', '');
     eui.setAttribute('login-disabled', 'true');
+    eui.setAttribute('header', 'false');
     const container = document.getElementById('eui-container');
     container.appendChild(eui);
 
