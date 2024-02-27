@@ -286,6 +286,7 @@ body.overlay-open {
 }
 
 .eui-image {
+  cursor: pointer;
   display: block;
   margin: auto;
 }

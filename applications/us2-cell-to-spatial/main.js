@@ -273,16 +273,17 @@ function updateEui(rui_locations) {
     eui.setAttribute('header', 'false');
     const container = document.getElementById('eui-container');
     container.appendChild(eui);
-
-    const button = document.getElementById('download-as-jsonld');
-    button.addEventListener('click', () => {
-      const jsonString = JSON.stringify(generatedRuiLocations, null, 2);
-      const fileToSave = new Blob([jsonString], {
-        type: 'application/json',
-      });
-      saveAs(fileToSave, 'rui_locations.jsonld');
-    });
   }
 
   eui.setAttribute('data-sources', JSON.stringify([JSON.stringify(rui_locations)]));
 }
+
+// Download JSON-LD
+const button = document.getElementById('download-as-jsonld');
+button.addEventListener('click', () => {
+  const jsonString = JSON.stringify(generatedRuiLocations, null, 2);
+  const fileToSave = new Blob([jsonString], {
+    type: 'application/json',
+  });
+  saveAs(fileToSave, 'rui_locations.jsonld');
+});
