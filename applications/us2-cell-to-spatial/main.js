@@ -64,6 +64,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     clearResults();
     if (csvString) {
       const { sources, rui_locations } = await getSimilarHraItems(csvString, selectedOrganIri, selectedToolIri);
+      generatedRuiLocations = rui_locations;
 
       if (sources?.length > 0) {
         results.style.display = 'block';
@@ -264,7 +265,6 @@ function updateEui(rui_locations) {
 
   // Construct EUI
   let eui = document.getElementsByTagName('ccf-eui')[0];
-  generatedRuiLocations = rui_locations;
   if (!eui) {
     eui = document.createElement('ccf-eui');
     eui.setAttribute('use-remote-api', 'false');
