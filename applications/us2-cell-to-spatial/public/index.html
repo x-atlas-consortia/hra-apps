@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>User Story 2: Predicting 3D Spatial Origins of Tissue Samples</title>
@@ -13,6 +14,7 @@
   <script src="/components/hra-app-shell.wc.js"></script>
   <script src="bundle.js" type="module"></script>
 </head>
+
 <body style="visibility: hidden;">
   <hra-app-shell logo-text="Human Reference Atlas Applications" logo-text-small="HRA Applications" logo-url="/"
     github-url="https://github.com/x-atlas-consortia/hra-apps/tree/main/applications/us2-cell-to-spatial/#readme">
@@ -23,9 +25,11 @@
         <div class="card-container">
           <div class="card height-card">
             <h3>1. Upload a Cell Summary in CSV format</h3>
-            <p>Upload a cell summary CSV file or use the sample file to generate 3D spatial origins of tissue samples. 
+            <p>Upload a cell summary CSV file or use the sample file to generate 3D spatial origins of tissue samples.
               The CSV file must have the header (cell_id,percentage).</p>
-            <p>See sample file on GitHub <a target="_blank" href="https://github.com/x-atlas-consortia/hra-apps/blob/main/applications/us2-cell-to-spatial/heart-cell-summary.csv">here</a></p>
+            <p>See sample file on GitHub <a target="_blank"
+                href="https://github.com/x-atlas-consortia/hra-apps/blob/main/applications/us2-cell-to-spatial/heart-cell-summary.csv">here</a>
+            </p>
             <div class="filler"></div>
             <span style="width: 100%;">
               <span id="upload-status">No file loaded</span><br>
@@ -53,7 +57,8 @@
             </md-filled-select>
 
             <div class="filler"></div>
-            <span id="upload-message" style="padding-top: 1.25rem;">Upload a cell summary CSV to generate predictions.</span>
+            <span id="upload-message" style="padding-top: 1.25rem;">Upload a cell summary CSV to generate
+              predictions.</span>
             <p style="padding-top: 1.25rem;">
               <button id="submit-file" style="display: none;" class="btn dark-btn">Generate Predictions</button>
             </p>
@@ -100,10 +105,25 @@
         </div>
 
         <span class="download-as">
-            <h2>Similar RUI Locations</h2>
-            <button id="download-as-jsonld" class="btn dark-btn">Download as JSON-LD</button>
+          <h2>Similar RUI Locations</h2>
+          <button id="download-as-jsonld" class="btn dark-btn">Download as JSON-LD</button>
         </span>
-        <div id="eui-container" style="margin-left: -10rem; width: 75.5rem;"></div>
+
+        <img id="eui-image" class="eui-image" src="assets/images/eui.svg" />
+        <span class="explore-locations">
+          <h3>View similar RUI locations using the Exploration User Interface (EUI)</h3>
+          <button id="explore-locations" class="btn dark-btn">Explore Locations</button>
+        </span>
+      </div>
+
+      <div id='eui-wrapper' class="eui-wrapper">
+        <div id='eui-toolbar' class="eui-toolbar">
+          <span id='back-button' class="back-button">
+            <img src="assets/icons/arrow_back.svg" />
+            Back
+          </span>
+        </div>
+        <div id="eui-container" class="eui-container"></div>
       </div>
     </div>
   </hra-app-shell>
