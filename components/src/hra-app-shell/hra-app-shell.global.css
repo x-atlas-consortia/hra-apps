@@ -298,7 +298,7 @@ body.overlay-open {
 }
 
 .eui-container {
-  height: calc(100% - 4.5rem);
+  height: calc(100% - 4rem);
 }
 
 body.overlay-open .eui-wrapper {
@@ -313,16 +313,20 @@ body.overlay-open .eui-wrapper {
 
 .back-button {
   display: flex;
+  font-weight: 600;
+  align-items: center;
   gap: 1rem;
-  padding: 24px 0 24px 24px;
+  padding: 17.5px 0 17.5px 24px;
   font-size: 1.5rem;
   cursor: pointer;
   width: max-content;
+  line-height: 1.8125rem;
 }
 
 .back-button img {
   height: 1.5rem;
   width: 1.5rem;
+  padding: 2.5px 0;
 }
 
 .explore-locations {
