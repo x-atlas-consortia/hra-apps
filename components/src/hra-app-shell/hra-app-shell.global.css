@@ -1,5 +1,22 @@
+:root {
+  --hra-apps-color-black: #212121;
+  --hra-apps-color-white: #ffffff;
+  --hra-apps-color-dark-blue: #444c65;
+  --hra-apps-color-light-purple: #e6e9f5;
+  --hra-apps-color-gray: #efefef;
+
+  --md-sys-color-primary: var(--hra-apps-color-dark-blue);
+  --md-sys-color-surface: var(--hra-apps-color-white);
+  --md-sys-color-on-surface: var(--hra-apps-color-black);
+  --md-sys-color-on-surface-variant: var(--hra-apps-color-dark-blue);
+  --md-sys-color-surface-container-highest: var(--hra-apps-color-gray);
+  --md-sys-color-outline-variant: var(--hra-apps-color-dark-blue);
+
+  --md-ref-typeface-plain: 'Inter', 'Inter Variable', sans-serif;
+}
+
 body {
-  background-color: rgba(250, 250, 250, 1);
+  background-color: var(--hra-apps-color-gray);
   font-family: 'Inter', 'Inter Variable', sans-serif;
   margin: 0;
   padding: 0;
@@ -10,7 +27,7 @@ body {
 }
 
 .light-btn {
-  color: rgba(68, 76, 101, 1) !important;
+  color: #444c65 !important;
   background-color: white;
 }
 
@@ -36,9 +53,9 @@ body {
 
 .main {
   display: block;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: #ffffff;
   line-height: 1.5rem;
-  color: rgba(33, 33, 33, 1);
+  color: #212121;
 }
 
 .main h1,
@@ -266,7 +283,6 @@ body {
 :root {
   --md-filled-select-text-field-input-text-font: system-ui;
   --md-sys-typescale-body-large-font: system-ui;
-  --md-filled-select-text-field-container-color: #fff;
 }
 
 md-filled-select::part(menu) {
@@ -338,4 +354,128 @@ body.overlay-open .eui-wrapper {
 .explore-locations h3 {
   margin: 0;
   line-height: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.component-divider {
+  margin: 4.5rem 0;
+}
+
+.component {
+  display: grid;
+  gap: 0 3.5rem;
+  grid:
+    "title preview"
+    "description preview"
+    ". preview" 1fr
+    "actions preview"
+    "embed-code embed-code"
+    "embed-app embed-app";
+
+  --button-border-radius: 0.25rem;
+  --button-font-weight: 700;
+
+  --md-filled-button-container-shape: var(--button-border-radius);
+  --md-outlined-button-container-shape: var(--button-border-radius);
+
+  --md-filled-button-label-text-weight: var(--button-font-weight);
+  --md-outlined-button-label-text-weight: var(--button-font-weight);
+}
+
+.component .title {
+  grid-area: title;
+  margin-bottom: 1.25rem;
+}
+
+.component .description {
+  grid-area: description;
+}
+
+.component .actions {
+  display: flex;
+  grid-area: actions;
+  gap: 1.5rem;
+}
+
+.component .actions > * {
+  width: 9rem;
+}
+
+.component .preview {
+  grid-area: preview;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 16px 0 rgba(32, 30, 61, 0.24);
+}
+
+.component .embed-code {
+  grid-area: embed-code;
+  position: relative;
+  min-height: 2.5rem;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--hra-apps-color-dark-blue);
+  border-radius: 0.25rem;
+  background-color: var(--hra-apps-color-gray);
+  box-shadow: 0 5px 16px 0 rgba(32, 30, 61, 0.24);
+}
+
+.component .embed-code pre {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.component .embed-code .copy {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: var(--hra-apps-color-white);
+}
+
+.component .embed-code:not(:hover) .copy {
+  display: none;
+}
+
+.component .embed-app {
+  grid-area: embed-app;
+}
+
+.component .embed-app iframe {
+  display: block;
+  width: 100%;
+  margin-top: 2.5rem;
+  border: none;
+}
+
+#overlay-container {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+#overlay-container .toolbar {
+  height: 4rem;
+  padding: 0 1.09375rem;
+  background-color: var(--hra-apps-color-dark-blue);
+
+  --md-sys-color-primary: var(--hra-apps-color-white);
+  --md-sys-color-surface: var(--hra-apps-color-dark-blue);
+  --md-text-button-container-height: 4rem;
+  --md-text-button-container-shape: 0;
+  --md-text-button-label-text-size: 1.5rem;
+  --md-text-button-label-text-weight: 600;
+  --md-text-button-icon-size: 2rem;
+}
+
+#overlay-container .apps {
+  height: calc(100vh - 4rem);
+  background-color: var(--hra-apps-color-white);
+}
+
+#overlay-container .apps iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }

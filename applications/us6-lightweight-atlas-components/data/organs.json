@@ -1,0 +1,92 @@
+[
+  {
+    "id": "kidney",
+    "label": "Kidney",
+    "appData": {
+      "ftu-medical-illustration": {
+        "illustration": "kidney-renal-corpuscle"
+      }
+    }
+  },
+  {
+    "id": "large-intestine",
+    "label": "Large Intestine",
+    "appData": {
+      "ftu-medical-illustration": {
+        "illustration": "large-intestine-crypt-lieberkuhn"
+      }
+    }
+  },
+  {
+    "id": "liver",
+    "label": "Liver",
+    "appData": {
+      "ftu-medical-illustration": {
+        "illustration": "liver-liver-lobule"
+      }
+    }
+  },
+  {
+    "id": "lung",
+    "label": "Lung",
+    "appData": {
+      "ftu-medical-illustration": {
+        "illustration": "lung-bronchial-submucosal-gland"
+      }
+    }
+  },
+  {
+    "id": "pancreas",
+    "label": "Pancreas",
+    "appData": {
+      "ftu-medical-illustration": {
+        "illustration": "pancreas-intercalated-duct"
+      }
+    }
+  },
+  {
+    "id": "prostate-gland",
+    "label": "Prostate Gland",
+    "appData": {
+      "ftu-medical-illustration": {
+        "illustration": "prostate-prostate-glandular-acinus"
+      }
+    }
+  },
+  {
+    "id": "skin",
+    "label": "Skin",
+    "appData": {
+      "ftu-medical-illustration": {
+        "illustration": "skin-dermal-papilla"
+      }
+    }
+  },
+  {
+    "id": "small-intestine",
+    "label": "Small Intestine",
+    "appData": {
+      "ftu-medical-illustration": {
+        "illustration": "small-intestine-villus"
+      }
+    }
+  },
+  {
+    "id": "spleen",
+    "label": "Spleen",
+    "appData": {
+      "ftu-medical-illustration": {
+        "illustration": "spleen-white-pulp"
+      }
+    }
+  },
+  {
+    "id": "thymus",
+    "label": "Thymus",
+    "appData": {
+      "ftu-medical-illustration": {
+        "illustration": "thymus-thymus-lobule"
+      }
+    }
+  }
+]
