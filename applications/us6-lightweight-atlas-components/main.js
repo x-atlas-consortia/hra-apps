@@ -199,7 +199,6 @@ function renderComponentAppIframe(containerEl, code, watchHeight) {
     const heightCheckFrequency = 50;
     function updateHeight() {
       const height = contentDocument.body.scrollHeight;
-      console.log('updating height', height)
       if (height !== 0) {
         iframe.setAttribute('height', height + extraHeight);
       }
