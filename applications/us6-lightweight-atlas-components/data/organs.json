@@ -1,0 +1,194 @@
+[
+  {
+    "id": "kidney",
+    "label": "Kidney",
+    "appData": {
+      "rui": {
+        "name": "Kidney",
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0004538",
+        "side": "left",
+        "sex": "female"
+      },
+      "eui": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002113"
+      },
+      "eui-organ-information": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002113"
+      },
+      "asctb-reporter": {
+        "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=kidney-v1.4&playground=false"
+      },
+      "ftu-ui-small": {
+        "illustration": "kidney-renal-corpuscle"
+      },
+      "ftu-medical-illustration": {
+        "illustration": "kidney-renal-corpuscle"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
+      }
+    }
+  },
+  {
+    "id": "large-intestine",
+    "label": "Large Intestine",
+    "appData": {
+      "asctb-reporter": {
+        "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=large-intestine-v1.3&playground=false"
+      },
+      "ftu-ui-small": {
+        "illustration": "large-intestine-crypt-lieberkuhn"
+      },
+      "ftu-medical-illustration": {
+        "illustration": "large-intestine-crypt-lieberkuhn"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
+      }
+    }
+  },
+  {
+    "id": "liver",
+    "label": "Liver",
+    "appData": {
+      "asctb-reporter": {
+        "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=liver-v1.2&playground=false"
+      },
+      "ftu-ui-small": {
+        "illustration": "liver-liver-lobule"
+      },
+      "ftu-medical-illustration": {
+        "illustration": "liver-liver-lobule"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
+      }
+    }
+  },
+  {
+    "id": "lung",
+    "label": "Lung",
+    "appData": {
+      "asctb-reporter": {
+        "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=lung-v1.4&playground=false"
+      },
+      "ftu-ui-small": {
+        "illustration": "lung-bronchial-submucosal-gland"
+      },
+      "ftu-medical-illustration": {
+        "illustration": "lung-bronchial-submucosal-gland"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
+      }
+    }
+  },
+  {
+    "id": "pancreas",
+    "label": "Pancreas",
+    "appData": {
+      "asctb-reporter": {
+        "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=pancreas-v1.3&playground=false"
+      },
+      "ftu-ui-small": {
+        "illustration": "pancreas-intercalated-duct"
+      },
+      "ftu-medical-illustration": {
+        "illustration": "pancreas-intercalated-duct"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
+      }
+    }
+  },
+  {
+    "id": "prostate-gland",
+    "label": "Prostate Gland",
+    "appData": {
+      "asctb-reporter": {
+        "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=Prostate-v1.1&playground=false"
+      },
+      "ftu-ui-small": {
+        "illustration": "prostate-prostate-glandular-acinus"
+      },
+      "ftu-medical-illustration": {
+        "illustration": "prostate-prostate-glandular-acinus"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
+      }
+    }
+  },
+  {
+    "id": "skin",
+    "label": "Skin",
+    "appData": {
+      "asctb-reporter": {
+        "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=skin-v1.3&playground=false"
+      },
+      "ftu-ui-small": {
+        "illustration": "skin-dermal-papilla"
+      },
+      "ftu-medical-illustration": {
+        "illustration": "skin-dermal-papilla"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
+      }
+    }
+  },
+  {
+    "id": "small-intestine",
+    "label": "Small Intestine",
+    "appData": {
+      "asctb-reporter": {
+        "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=Small_Intestine-v1.1&playground=false"
+      },
+      "ftu-ui-small": {
+        "illustration": "small-intestine-villus"
+      },
+      "ftu-medical-illustration": {
+        "illustration": "small-intestine-villus"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
+      }
+    }
+  },
+  {
+    "id": "spleen",
+    "label": "Spleen",
+    "appData": {
+      "asctb-reporter": {
+        "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=spleen-v1.3&playground=false"
+      },
+      "ftu-ui-small": {
+        "illustration": "spleen-white-pulp"
+      },
+      "ftu-medical-illustration": {
+        "illustration": "spleen-white-pulp"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
+      }
+    }
+  },
+  {
+    "id": "thymus",
+    "label": "Thymus",
+    "appData": {
+      "asctb-reporter": {
+        "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=thymus-v1.4&playground=false"
+      },
+      "ftu-ui-small": {
+        "illustration": "thymus-thymus-lobule"
+      },
+      "ftu-medical-illustration": {
+        "illustration": "thymus-thymus-lobule"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
+      }
+    }
+  }
+]

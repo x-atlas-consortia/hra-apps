@@ -1,0 +1,20 @@
+{
+  "name": "us6-cell-to-spatial",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm-run-all build:public build:app",
+    "build:public": "mkdir -p ../../dist/us6/ && rsync -ru --delete public/ ../../dist/us6/",
+    "build:app": "npx esbuild main.js --bundle --format=esm --loader:.html=text --loader:.csv=text --outfile=../../dist/us6/bundle.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@material/web": "^1.0.1",
+    "highlight.js": "^11.9.0",
+    "npm-run-all": "^4.1.5"
+  }
+}

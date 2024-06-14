@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>User Story 6: Usage of lightweight atlas components</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" />
+    <script src="/components/hra-app-shell.wc.js"></script>
+    <script src="bundle.js" type="module" defer></script>
+  </head>
+
+  <body>
+    <hra-app-shell
+      logo-text="Human Reference Atlas Applications"
+      logo-text-small="HRA Applications"
+      logo-url="/"
+      github-url="https://github.com/x-atlas-consortia/hra-apps/tree/main/applications/us6-lightweight-atlas-components/#readme"
+    >
+      <div class="main">
+        <h1 class="page-title" style="margin-bottom: 1.25rem">Use Lightweight Atlas Components</h1>
+        <p class="page-description">
+          Given an organ, use HRA components (interfaces and APIs) to support the growing ecosystem of human atlases.
+          Use full atlas applications, embed the resulting visualization component on your website, or use APIs for this
+          organ.
+        </p>
+
+        <p>Select an organ to explore available components:</p>
+        <md-filled-select id="organ-select"> </md-filled-select>
+
+        <div id="components"></div>
+        <div id="overlay-container" class="hidden">
+          <div class="toolbar">
+            <md-text-button class="close">
+              <md-icon slot="icon">navigate_before</md-icon>
+              Back
+            </md-text-button>
+          </div>
+          <div class="apps"></div>
+        </div>
+      </div>
+    </hra-app-shell>
+
+    <template id="organ-select-option-template">
+      <md-select-option>
+        <div class="label" slot="headline"></div>
+      </md-select-option>
+    </template>
+
+    <template id="component-template">
+      <md-divider class="component-divider"></md-divider>
+      <div class="component">
+        <h1 class="title"></h1>
+        <p class="description"></p>
+        <div class="actions">
+          <md-filled-button class="launch">Use App</md-filled-button>
+          <md-outlined-button class="embed">
+            <md-icon slot="icon">code</md-icon>
+            Embed
+          </md-outlined-button>
+        </div>
+        <img class="preview" />
+        <div class="embed-code hidden">
+          <pre><code></code></pre>
+          <md-outlined-button class="copy">Copy</md-outlined-button>
+        </div>
+        <div class="embed-app hidden"></div>
+      </div>
+    </template>
+  </body>
+</html>
