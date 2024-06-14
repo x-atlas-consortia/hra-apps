@@ -25,24 +25,24 @@
     "title": "EUI > 3D Organ Viewer",
     "description": "Interact with a 3D scene constructed from extraction sites registered to the HRA.",
     "previewImage": "assets/images/app-previews/eui-3d-organ-viewer.png",
-    "embedAs": "overlay"
+    "embedAs": "inline"
   },
   {
     "id": "asctb-reporter",
     "title": "ASCT+B Reporter",
     "description": "Explore and compare ASCT+B Tables and construct OMAPs with this visualization tool.",
     "previewImage": "assets/images/app-previews/asctb-reporter.png",
-    "embedAs": "overlay"
+    "embedAs": "external"
   },
   {
-    "id": "ftu",
+    "id": "ftu-ui",
     "title": "Functional Tissue Unit (FTU) Explorer",
     "description": "Explore FTUs by cell types and biomarkers with the full application.",
     "previewImage": "assets/images/app-previews/ftu.png",
     "embedAs": "overlay"
   },
   {
-    "id": "ftu-small-wc",
+    "id": "ftu-ui-small",
     "title": "FTU Explorer > Small Web Component",
     "description": "Analyze FTUs by cell types and biomarkers with a small web component.",
     "previewImage": "assets/images/app-previews/ftu-small-web-component.png",
@@ -60,6 +60,6 @@
     "title": "HRA API",
     "description": "Query and interact with the Human Reference Atlas using APIs.",
     "previewImage": "assets/images/app-previews/hra-api.png",
-    "embedAs": "overlay"
+    "embedAs": "external"
   }
 ]

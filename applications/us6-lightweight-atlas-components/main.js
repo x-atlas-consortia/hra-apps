@@ -10,13 +10,23 @@ import javascript from 'highlight.js/lib/languages/javascript';
 import xml from 'highlight.js/lib/languages/xml';
 import componentDefs from './data/component-defs.json';
 import organs from './data/organs.json';
+import eui3dOrganViewer from './data/templates/eui-3d-organ-viewer.html';
+import euiOrganInfoEmbedTemplate from './data/templates/eui-organ-info.html';
+import euiEmbedTemplate from './data/templates/eui.html';
 import ftuMedicalIllustrationEmbedTemplate from './data/templates/ftu-medical-illustration.html';
+import ftuUiSmallEmbedTemplate from './data/templates/ftu-ui-small.html';
+import ruiEmbedTemplate from './data/templates/rui.html';
 
 // -------------------------------------------------------
 // Data
 // -------------------------------------------------------
 
 const embedTemplates = {
+  rui: ruiEmbedTemplate,
+  eui: euiEmbedTemplate,
+  'eui-organ-information': euiOrganInfoEmbedTemplate,
+  'eui-3d-organ-viewer': eui3dOrganViewer,
+  'ftu-ui-small': ftuUiSmallEmbedTemplate,
   'ftu-medical-illustration': ftuMedicalIllustrationEmbedTemplate,
 };
 
@@ -45,7 +55,10 @@ function renderTemplateElement(template, renderers) {
 }
 
 function interpolateEmbedTemplate(template, replacements) {
-  return template.replace(/{{(\w+?)}}/g, (_match, key) => replacements[key]);
+  return template.replace(/{{(\w+?)}}/g, (_match, key) => {
+    const value = replacements[key];
+    return typeof value === 'string' ? value : JSON.stringify(value);
+  });
 }
 
 function toggleHidden(element, selector) {
@@ -103,7 +116,7 @@ function onOrganSelectChange(event) {
     const { id } = def;
     const embedTemplate = embedTemplates[id];
     const embedTemplateData = organ.appData[id];
-    if (!embedTemplate || !embedTemplateData) {
+    if (!embedTemplateData) {
       continue;
     }
 
@@ -111,7 +124,7 @@ function onOrganSelectChange(event) {
       ...def,
       embedTemplate,
       embedTemplateData,
-      embedCode: interpolateEmbedTemplate(embedTemplate, embedTemplateData),
+      embedCode: embedTemplate && interpolateEmbedTemplate(embedTemplate, embedTemplateData),
     });
 
     componentsEl.appendChild(component);
@@ -140,11 +153,10 @@ function renderComponent(data) {
   });
 }
 
-function renderComponentActions(componentsEl, actionsEl, data) {
-  const toggleEmbedCode = () => toggleHidden(componentsEl, '.embed-code');
+function renderComponentActions(componentEl, actionsEl, data) {
   return renderElement(actionsEl, {
-    '.launch': (el) => renderComponentActionLaunch(componentsEl, el, data),
-    '.embed': (el) => el.addEventListener('click', toggleEmbedCode),
+    '.launch': (el) => renderComponentActionLaunch(componentEl, el, data),
+    '.embed': (el) => renderComponentActionEmbed(componentEl, el, data),
   });
 }
 
@@ -154,10 +166,22 @@ function renderComponentActionLaunch(componentEl, launchEl, data) {
       return renderComponentActionLaunchInline(componentEl, launchEl, data);
     case 'overlay':
       return renderComponentActionLaunchOverlay(launchEl, data);
-    // TODO: case 'external'
+    case 'external':
+      return renderComponentActionLaunchExternal(launchEl, data);
     default:
       return launchEl;
   }
+}
+
+function renderComponentActionEmbed(componentEl, embedEl, data) {
+  if (data.embedAs === 'external' || !data.embedCode) {
+    embedEl.classList.add('hidden');
+  } else {
+    const toggleEmbedCode = () => toggleHidden(componentEl, '.embed-code');
+    embedEl.addEventListener('click', toggleEmbedCode);
+  }
+
+  return embedEl;
 }
 
 function renderComponentActionLaunchInline(componentEl, launchEl, data) {
@@ -178,10 +202,17 @@ function renderComponentActionLaunchOverlay(launchEl, data) {
     const appsEl = overlayContainerEl.querySelector('.apps');
 
     appIframe ??= renderComponentAppIframe(appsEl, data.embedCode, false);
+    document.body.style.setProperty('overflow', 'hidden');
     overlayContainerEl.classList.remove('hidden');
     appIframe.classList.remove('hidden');
   });
 
+  return launchEl;
+}
+
+function renderComponentActionLaunchExternal(launchEl, data) {
+  launchEl.setAttribute('href', data.embedTemplateData['url']);
+  launchEl.setAttribute('target', '_blank');
   return launchEl;
 }
 
@@ -222,6 +253,10 @@ function renderComponentAppIframe(containerEl, code, watchHeight) {
 }
 
 function renderComponentEmbedCode(embedEl, code) {
+  if (!code) {
+    return embedEl;
+  }
+
   const { value: highlightedCode } = hljs.highlight(code, { language: 'html' });
   let copyButtonReset;
 
@@ -251,6 +286,8 @@ function initOverlayApps() {
   const overlayAppsEl = document.querySelector('#overlay-container');
 
   function closeAll() {
+    document.body.style.removeProperty('overflow');
+
     const appEls = overlayAppsEl.querySelectorAll('.apps > *');
     for (const el of [overlayAppsEl, ...appEls]) {
       el.classList.add('hidden');
