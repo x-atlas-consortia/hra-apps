@@ -57,7 +57,11 @@ function renderTemplateElement(template, renderers) {
 function interpolateEmbedTemplate(template, replacements) {
   return template.replace(/{{(\w+?)}}/g, (_match, key) => {
     const value = replacements[key];
-    return typeof value === 'string' ? value : JSON.stringify(value);
+    if (typeof value === 'string') {
+      return value;
+    }
+
+    return JSON.stringify(value, undefined, 1).replace(/\n\s*/g, ' ');
   });
 }
 
@@ -245,8 +249,14 @@ function renderComponentAppIframe(containerEl, code, watchHeight) {
 
     resizeListeners.push(updateHeight);
   } else {
-    contentDocument.documentElement.style.height = '100%';
-    contentDocument.body.style.height = '100%';
+    const heightInitializerCheckFrequency = 50;
+    const heightInitializerTimer = setInterval(() => {
+      if (contentDocument.documentElement) {
+        contentDocument.documentElement.style.height = '100%';
+        contentDocument.body.style.height = '100%';
+        clearInterval(heightInitializerTimer);
+      }
+    }, heightInitializerCheckFrequency);
   }
 
   return iframe;
