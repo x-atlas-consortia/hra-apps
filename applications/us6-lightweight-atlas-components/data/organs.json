@@ -33,6 +33,18 @@
     "id": "large-intestine",
     "label": "Large Intestine",
     "appData": {
+      "rui": {
+        "name": "Large Intestine",
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0000059",
+        "side": "",
+        "sex": "female"
+      },
+      "eui": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0000059"
+      },
+      "eui-organ-information": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0000059"
+      },
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=large-intestine-v1.3&playground=false"
       },
@@ -51,6 +63,18 @@
     "id": "liver",
     "label": "Liver",
     "appData": {
+      "rui": {
+        "name": "Liver",
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002107",
+        "side": "",
+        "sex": "female"
+      },
+      "eui": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002107"
+      },
+      "eui-organ-information": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002107"
+      },
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=liver-v1.2&playground=false"
       },
@@ -69,6 +93,18 @@
     "id": "lung",
     "label": "Lung",
     "appData": {
+      "rui": {
+        "name": "Lung",
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002048",
+        "side": "",
+        "sex": "female"
+      },
+      "eui": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002048"
+      },
+      "eui-organ-information": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002048"
+      },
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=lung-v1.4&playground=false"
       },
@@ -87,6 +123,18 @@
     "id": "pancreas",
     "label": "Pancreas",
     "appData": {
+      "rui": {
+        "name": "Pancreas",
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0001264",
+        "side": "",
+        "sex": "female"
+      },
+      "eui": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0001264"
+      },
+      "eui-organ-information": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0001264"
+      },
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=pancreas-v1.3&playground=false"
       },
@@ -105,6 +153,18 @@
     "id": "prostate-gland",
     "label": "Prostate Gland",
     "appData": {
+      "rui": {
+        "name": "Prostate Gland",
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0000079",
+        "side": "",
+        "sex": "male"
+      },
+      "eui": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0000079"
+      },
+      "eui-organ-information": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0000079"
+      },
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=Prostate-v1.1&playground=false"
       },
@@ -123,6 +183,18 @@
     "id": "skin",
     "label": "Skin",
     "appData": {
+      "rui": {
+        "name": "Skin",
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002097",
+        "side": "",
+        "sex": "female"
+      },
+      "eui": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002097"
+      },
+      "eui-organ-information": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002097"
+      },
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=skin-v1.3&playground=false"
       },
@@ -141,6 +213,18 @@
     "id": "small-intestine",
     "label": "Small Intestine",
     "appData": {
+      "rui": {
+        "name": "Small Intestine",
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002108",
+        "side": "",
+        "sex": "female"
+      },
+      "eui": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002108"
+      },
+      "eui-organ-information": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002108"
+      },
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=Small_Intestine-v1.1&playground=false"
       },
@@ -159,6 +243,18 @@
     "id": "spleen",
     "label": "Spleen",
     "appData": {
+      "rui": {
+        "name": "Spleen",
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002106",
+        "side": "",
+        "sex": "female"
+      },
+      "eui": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002106"
+      },
+      "eui-organ-information": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002106"
+      },
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=spleen-v1.3&playground=false"
       },
@@ -177,6 +273,18 @@
     "id": "thymus",
     "label": "Thymus",
     "appData": {
+      "rui": {
+        "name": "Thymus",
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002370",
+        "side": "",
+        "sex": "female"
+      },
+      "eui": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002370"
+      },
+      "eui-organ-information": {
+        "organ": "http://purl.obolibrary.org/obo/UBERON_0002370"
+      },
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=thymus-v1.4&playground=false"
       },
