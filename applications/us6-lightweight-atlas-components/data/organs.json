@@ -15,7 +15,6 @@
       "eui-organ-information": {
         "organ": "http://purl.obolibrary.org/obo/UBERON_0002113"
       },
-      "eui-3d-organ-viewer": {},
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=kidney-v1.4&playground=false"
       },
@@ -42,6 +41,9 @@
       },
       "ftu-medical-illustration": {
         "illustration": "large-intestine-crypt-lieberkuhn"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
       }
     }
   },
@@ -57,6 +59,9 @@
       },
       "ftu-medical-illustration": {
         "illustration": "liver-liver-lobule"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
       }
     }
   },
@@ -72,6 +77,9 @@
       },
       "ftu-medical-illustration": {
         "illustration": "lung-bronchial-submucosal-gland"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
       }
     }
   },
@@ -87,6 +95,9 @@
       },
       "ftu-medical-illustration": {
         "illustration": "pancreas-intercalated-duct"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
       }
     }
   },
@@ -102,6 +113,9 @@
       },
       "ftu-medical-illustration": {
         "illustration": "prostate-prostate-glandular-acinus"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
       }
     }
   },
@@ -117,6 +131,9 @@
       },
       "ftu-medical-illustration": {
         "illustration": "skin-dermal-papilla"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
       }
     }
   },
@@ -132,6 +149,9 @@
       },
       "ftu-medical-illustration": {
         "illustration": "small-intestine-villus"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
       }
     }
   },
@@ -147,6 +167,9 @@
       },
       "ftu-medical-illustration": {
         "illustration": "spleen-white-pulp"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
       }
     }
   },
@@ -162,6 +185,9 @@
       },
       "ftu-medical-illustration": {
         "illustration": "thymus-thymus-lobule"
+      },
+      "hra-api": {
+        "url": "https://apps.humanatlas.io/api/"
       }
     }
   }
