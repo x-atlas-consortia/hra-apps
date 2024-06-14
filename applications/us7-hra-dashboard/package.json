@@ -1,0 +1,12 @@
+{
+  "name": "us7-hra-dashboard",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "mkdir -p ../../dist/dashboard/ && rsync -ru public/ ../../dist/dashboard/"
+  },
+  "author": "",
+  "license": "MIT"
+}
