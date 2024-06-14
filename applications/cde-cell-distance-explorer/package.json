@@ -1,0 +1,12 @@
+{
+  "name": "cde-cell-distance-explorer",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "mkdir -p ../../dist/cde/ && rsync -ru public/ ../../dist/cde/"
+  },
+  "author": "",
+  "license": "MIT"
+}
