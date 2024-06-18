@@ -15,6 +15,7 @@ import euiOrganInfoEmbedTemplate from './data/templates/eui-organ-info.html';
 import euiEmbedTemplate from './data/templates/eui.html';
 import ftuMedicalIllustrationEmbedTemplate from './data/templates/ftu-medical-illustration.html';
 import ftuUiSmallEmbedTemplate from './data/templates/ftu-ui-small.html';
+import ftuUiEmbedTemplate from './data/templates/ftu-ui.html';
 import ruiEmbedTemplate from './data/templates/rui.html';
 
 // -------------------------------------------------------
@@ -26,6 +27,7 @@ const embedTemplates = {
   eui: euiEmbedTemplate,
   'eui-organ-information': euiOrganInfoEmbedTemplate,
   'eui-3d-organ-viewer': eui3dOrganViewer,
+  'ftu-ui': ftuUiEmbedTemplate,
   'ftu-ui-small': ftuUiSmallEmbedTemplate,
   'ftu-medical-illustration': ftuMedicalIllustrationEmbedTemplate,
 };
