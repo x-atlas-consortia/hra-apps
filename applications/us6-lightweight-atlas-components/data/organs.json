@@ -18,6 +18,9 @@
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=kidney-v1.4&playground=false"
       },
+      "ftu-ui": {
+        "illustration": "kidney-renal-corpuscle"
+      },
       "ftu-ui-small": {
         "illustration": "kidney-renal-corpuscle"
       },
@@ -47,6 +50,9 @@
       },
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=large-intestine-v1.3&playground=false"
+      },
+      "ftu-ui": {
+        "illustration": "large-intestine-crypt-lieberkuhn"
       },
       "ftu-ui-small": {
         "illustration": "large-intestine-crypt-lieberkuhn"
@@ -78,6 +84,9 @@
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=liver-v1.2&playground=false"
       },
+      "ftu-ui": {
+        "illustration": "liver-liver-lobule"
+      },
       "ftu-ui-small": {
         "illustration": "liver-liver-lobule"
       },
@@ -107,6 +116,9 @@
       },
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=lung-v1.4&playground=false"
+      },
+      "ftu-ui": {
+        "illustration": "lung-bronchial-submucosal-gland"
       },
       "ftu-ui-small": {
         "illustration": "lung-bronchial-submucosal-gland"
@@ -138,6 +150,9 @@
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=pancreas-v1.3&playground=false"
       },
+      "ftu-ui": {
+        "illustration": "pancreas-intercalated-duct"
+      },
       "ftu-ui-small": {
         "illustration": "pancreas-intercalated-duct"
       },
@@ -167,6 +182,9 @@
       },
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=Prostate-v1.1&playground=false"
+      },
+      "ftu-ui": {
+        "illustration": "prostate-prostate-glandular-acinus"
       },
       "ftu-ui-small": {
         "illustration": "prostate-prostate-glandular-acinus"
@@ -198,6 +216,9 @@
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=skin-v1.3&playground=false"
       },
+      "ftu-ui": {
+        "illustration": "skin-dermal-papilla"
+      },
       "ftu-ui-small": {
         "illustration": "skin-dermal-papilla"
       },
@@ -227,6 +248,9 @@
       },
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=Small_Intestine-v1.1&playground=false"
+      },
+      "ftu-ui": {
+        "illustration": "small-intestine-villus"
       },
       "ftu-ui-small": {
         "illustration": "small-intestine-villus"
@@ -258,6 +282,9 @@
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=spleen-v1.3&playground=false"
       },
+      "ftu-ui": {
+        "illustration": "spleen-white-pulp"
+      },
       "ftu-ui-small": {
         "illustration": "spleen-white-pulp"
       },
@@ -287,6 +314,9 @@
       },
       "asctb-reporter": {
         "url": "https://hubmapconsortium.github.io/ccf-asct-reporter/vis?selectedOrgans=thymus-v1.4&playground=false"
+      },
+      "ftu-ui": {
+        "illustration": "thymus-thymus-lobule"
       },
       "ftu-ui-small": {
         "illustration": "thymus-thymus-lobule"
