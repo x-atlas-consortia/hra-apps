@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HuBMAP - HRA Exploration User Interface</title>
+    <base href="https://cdn.humanatlas.io/ui/ccf-eui/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+    <script src="wc.js" async></script>
+  </head>
+
+  <body>
+    <template id="eui-template">
+      <ccf-eui
+        logo-tooltip="HuBMAP Data Portal"
+        home-url="https://portal.hubmapconsortium.org/"
+        theme="hubmap"
+        use-remote-api="true"
+        remote-api-endpoint="https://apps.humanatlas.io/api/v1"
+        hubmap-token="TOKEN"
+        login-disabled="true"
+      ></ccf-eui>
+    </template>
+    <script>
+      window.addEventListener('DOMContentLoaded', async () => {
+        const searchParams = new URLSearchParams(window.location.search);
+        const hubmapToken = searchParams.get('hubmap-token') ?? '';
+        const token = await fetch('https://apps.humanatlas.io/api/v1/session-token', {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            Accept: 'application/json',
+            'content-type': 'application/json',
+          },
+          body: `{ "dataSources": [ "https://apps.humanatlas.io/api/ds-graph/hubmap?token=${hubmapToken}" ] }`,
+        })
+          .then((r) => r.json())
+          .then((r) => r?.token);
+
+        const euiTemplate = document.getElementById('eui-template');
+        const eui = euiTemplate.innerHTML.replace('TOKEN', token);
+        document.body.innerHTML = eui;
+      });
+    </script>
+  </body>
+</html>
