@@ -234,10 +234,11 @@ function renderComponentAppIframe(containerEl, code, watchHeight) {
   if (watchHeight) {
     const extraHeight = 16;
     const heightCheckFrequency = 50;
+    const minHeight = 480;
     function updateHeight() {
       const height = contentDocument.body.scrollHeight;
       if (height !== 0) {
-        iframe.setAttribute('height', height + extraHeight);
+        iframe.setAttribute('height', Math.max(minHeight, height + extraHeight));
       }
 
       return height;
