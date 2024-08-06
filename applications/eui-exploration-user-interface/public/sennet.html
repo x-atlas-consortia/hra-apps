@@ -17,8 +17,8 @@
       <ccf-eui
         logo-tooltip="SenNet Data Portal"
         home-url="https://data.sennetconsortium.org/"
+        data-sources='["https://apps.humanatlas.io/api/ds-graph/sennet?token=TOKEN"]'
         theme="sennet"
-        token="TOKEN"
         login-disabled="true"
       ></ccf-eui>
     </template>
@@ -26,20 +26,8 @@
       window.addEventListener('DOMContentLoaded', async () => {
         const searchParams = new URLSearchParams(window.location.search);
         const sennetToken = searchParams.get('sennet-token') ?? '';
-        const token = await fetch('https://apps.humanatlas.io/api/v1/session-token', {
-          method: 'POST',
-          mode: 'cors',
-          headers: {
-            Accept: 'application/json',
-            'content-type': 'application/json',
-          },
-          body: `{ "dataSources": [ "https://apps.humanatlas.io/api/ds-graph/sennet?token=${sennetToken}" ] }`,
-        })
-          .then((r) => r.json())
-          .then((r) => r?.token);
-
         const euiTemplate = document.getElementById('eui-template');
-        const eui = euiTemplate.innerHTML.replace('TOKEN', token);
+        const eui = euiTemplate.innerHTML.replace('TOKEN', sennetToken);
         document.body.innerHTML = eui;
       });
     </script>

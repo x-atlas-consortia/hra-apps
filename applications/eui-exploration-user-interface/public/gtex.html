@@ -13,33 +13,12 @@
   </head>
 
   <body>
-    <template id="eui-template">
-      <ccf-eui
-        logo-tooltip="GTEx Portal"
-        home-url="https://gtexportal.org"
-        theme="gtex"
-        token="TOKEN"
-        login-disabled="true"
-      ></ccf-eui>
-    </template>
-    <script>
-      window.addEventListener('DOMContentLoaded', async () => {
-        const token = await fetch('https://apps.humanatlas.io/api/v1/session-token', {
-          method: 'POST',
-          mode: 'cors',
-          headers: {
-            Accept: 'application/json',
-            'content-type': 'application/json',
-          },
-          body: '{ "dataSources": [ "https://apps.humanatlas.io/api/ds-graph/gtex" ] }',
-        })
-          .then((r) => r.json())
-          .then((r) => r?.token);
-
-        const euiTemplate = document.getElementById('eui-template');
-        const eui = euiTemplate.innerHTML.replace('TOKEN', token);
-        document.body.innerHTML = eui;
-      });
-    </script>
+    <ccf-eui
+      logo-tooltip="GTEx Portal"
+      home-url="https://gtexportal.org"
+      data-sources='["https://apps.humanatlas.io/api/ds-graph/gtex"]'
+      theme="gtex"
+      login-disabled="true"
+    ></ccf-eui>
   </body>
 </html>
