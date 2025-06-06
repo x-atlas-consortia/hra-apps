@@ -1,0 +1,12 @@
+{
+  "name": "docs-humanatlas-io-beta",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "mkdir -p ../../dist/beta--docs.humanatlas.io/ && rsync -ru public/ ../../dist/beta--docs.humanatlas.io/"
+  },
+  "author": "",
+  "license": "MIT"
+}
