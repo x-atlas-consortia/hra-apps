@@ -1,20 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <base href="/beta/" />
+    <title>app.humanatlas.io - BETA</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      html {
+        line-height: 1.15;
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        margin: 0;
+      }
+      html {
+        box-sizing: border-box;
+      }
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.humanatlas.io/ui--staging/apps.humanatlas.io/styles.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript
+      ><link rel="stylesheet" href="https://cdn.humanatlas.io/ui--staging/apps.humanatlas.io/styles.css"
+    /></noscript>
+    <script src="https://cdn.humanatlas.io/ui--staging/apps.humanatlas.io/wc.js" type="module" defer></script>
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <base href="/beta/">
-  <title>app.humanatlas.io - BETA</title>
-  <link rel="icon" type="image/png" href="/favicon.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}</style>
-  <link rel="stylesheet" href="https://cdn.humanatlas.io/ui--staging/apps.humanatlas.io/styles.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://cdn.humanatlas.io/ui--staging/apps.humanatlas.io/styles.css"></noscript></head>
-  <script src="https://cdn.humanatlas.io/ui--staging/apps.humanatlas.io/wc.js" type="module" defer></script>
-</head>
-
-<body>
-  <hra-apps></hra-apps>
-</body>
-
+  <body>
+    <hra-apps id="apps"></hra-apps>
+    <script>
+      const apps = document.querySelector("#apps");
+      apps.extraMenus = [
+        {
+          type: "menu",
+          id: "beta",
+          label: "Beta",
+          items: [
+            {
+              type: "group",
+              label: "ASCT+B Reporter",
+              url: "https://cdn.humanatlas.io/ui--staging/asctb-reporter/",
+            },
+            {
+              type: "divider",
+            },
+            {
+              type: "group",
+              label: "CCF Organ Info",
+              url: "https://cdn.humanatlas.io/ui--staging/ccf-organ-info/",
+            },
+            {
+              type: "divider",
+            },
+            {
+              type: "group",
+              label: "Cell Population Graphs",
+              url: "https://apps.humanatlas.io/cell-population-graphs/",
+            },
+          ],
+        },
+      ];
+    </script>
+  </body>
 </html>
