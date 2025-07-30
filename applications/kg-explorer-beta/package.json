@@ -1,0 +1,12 @@
+{
+  "name": "kg-explorer-beta",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "mkdir -p ../../dist/beta--kg-explorer/ && rsync -ru public/ ../../dist/beta--kg-explorer/"
+  },
+  "author": "",
+  "license": "MIT"
+}
