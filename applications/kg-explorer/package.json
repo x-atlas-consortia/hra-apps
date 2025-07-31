@@ -1,0 +1,12 @@
+{
+  "name": "kg-explorer",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "mkdir -p ../../dist/kg-explorer/ && rsync -ru public/ ../../dist/kg-explorer/"
+  },
+  "author": "",
+  "license": "MIT"
+}
