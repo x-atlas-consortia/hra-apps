@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CFDE Registrations</title>
+    <base href="https://cdn.humanatlas.io/ui/ccf-eui/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="styles.css" rel="stylesheet" />
+    <script src="wc.js" type="module"></script>
+  </head>
+
+  <body>
+    <ccf-eui
+      logo-tooltip="Common Fund Data Ecosystem"
+      home-url="https://commonfund.nih.gov/dataecosystem"
+      data-sources='[
+        "https://apps.humanatlas.io/api/ds-graph/hubmap",
+        "https://apps.humanatlas.io/api/ds-graph/sennet",
+        "https://apps.humanatlas.io/api/ds-graph/gtex"
+      ]'
+      theme="hubmap"
+      login-disabled="true"
+    ></ccf-eui>
+  </body>
+</html>
